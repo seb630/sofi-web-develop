@@ -174,7 +174,7 @@ export const globalConstants = {
     RADAR_RAYTEL: 'Eazense',
     RADAR_HOBA: 'TEQ-FallsAlert',
     BEACON_SITA: 'SITA Pendant',
-    BEACON_SOFIHUB: 'TEQ-Secure',
+    BEACON_SOFIHUB: 'Halo',
     BEACON_WATCH: 'Watch',
     PENDANT_GENERIC: 'pendant',
     HUB_GENERIC: 'hub',

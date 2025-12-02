@@ -4,7 +4,7 @@ import { Button, Checkbox, Col, Modal, Row, Space, Typography } from 'antd'
 import { actions, connect } from 'mirrorx'
 import HubIcon from '../../../images/hub_icon.svg'
 import WatchIcon from '.././../../images/beacon_watch_icon.png'
-import BeaconIcon from '../../../images/beacon_icon.svg'
+import BeaconIcon from '../../../images/beacon_icon.png'
 import RadarIcon from '.././../../images/radar_sensor_icon.png'
 import LifeIcon from '.././../../images/beacon_teq_life.png'
 import RadarQR from '@/images/radar_claim_qr.png'
@@ -165,7 +165,7 @@ class DeviceSelection extends Component {
                         <Col span={8}>
                             <Row justify="center">
                                 <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Beacon')}>
-                                    <BeaconIcon className="claimImg" />
+                                    <img src={BeaconIcon} className="claimImg" height='100px' alt="BeaconLogo" />
                                 </div>
                             </Row>
                             <Row justify="center">

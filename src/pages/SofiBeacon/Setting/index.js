@@ -18,7 +18,7 @@ import BeaconPrefixCard from '@/pages/SofiBeacon/Setting/BeaconPrefixCard'
 import EmergencyContactCard from '@/pages/SofiBeacon/Setting/EmergencyContact/EmergencyContactCard'
 import BeaconOverview from '@/pages/SofiBeacon/Setting/Overview'
 import ChangeCard from '@/pages/SofiBeacon/Setting/Overview/ChangeCard'
-import BeaconIcon from '@/images/beacon_icon.svg'
+import BeaconIcon from '@/images/beacon_icon.png'
 import LifeIcon from '@/images/beacon_teq_life.png'
 import WatchIcon from '@/images/beacon_watch_icon.png'
 import CallSettingCard from '@/pages/SofiBeacon/Setting/CallSettings/CallSettingCard'
@@ -68,7 +68,7 @@ class SofiBeaconSetting extends Component {
                     {
                         isLife(selectedBeacon) ? 
                             <img className='beacon' alt="logo" style={{ fontSize: 180, marginBottom: 24, width: '1em' }} src={LifeIcon} /> : 
-                            isWatch(selectedBeacon) ? <img src={WatchIcon} alt='logo' className='beacon' style={{fontSize: 180, marginBottom: 24, width: '1em'}}/>: <BeaconIcon className='beacon' alt="logo" style={{ fontSize: 180, marginBottom: 24 }} />
+                            isWatch(selectedBeacon) ? <img src={WatchIcon} alt='logo' className='beacon' style={{fontSize: 180, marginBottom: 24, width: '1em'}}/>: <img src={BeaconIcon} alt='logo' className='beacon' style={{fontSize: 180, marginBottom: 24, width: '1em'}} />
                     }
                 </Row>
                 <BeaconOverview />

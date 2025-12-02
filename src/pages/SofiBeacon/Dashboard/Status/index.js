@@ -1,6 +1,6 @@
 import { Button, Card, Col, Divider, Dropdown, Row, Switch, Tooltip } from 'antd'
 import DeviceStatus from '@/components/DeviceStatus'
-import BeaconIcon from '@/images/beacon_icon.svg'
+import BeaconIcon from '@/images/beacon_icon.png'
 import LifeIcon from '@/images/beacon_teq_life.png'
 import SitaIcon from '@/images/sita_icon.svg'
 import WatchIcon from '@/images/beacon_watch_icon.png'
@@ -106,7 +106,7 @@ const BeaconStatus = (props) => {
                         >
                             {isSita(beacon)?<SitaIcon/>: 
                                 isLife(beacon)? <img src={LifeIcon} style={{width: '65px'}} /> : 
-                                    isWatch(beacon) ? <img src={WatchIcon} style={{width:'65px'}}/> : <BeaconIcon />}
+                                    isWatch(beacon) ? <img src={WatchIcon} style={{width:'65px'}}/> : <img src={BeaconIcon} style={{width:'65px'}} alt="beacon" />}
                         </Col>
                         <Col flex="auto" className="statusRightContainer">
                             <Row align="middle" gutter={8} wrap={false}><Col flex="65px"><DeviceStatus status={beacon?.beacon_status}/></Col>
