@@ -11,6 +11,7 @@
 .env.production.local
 yarn.lock
 junit.xml
+deploy_to_cloudfront
 
 /.idea
 /.circleci
