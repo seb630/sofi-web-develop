@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="834" height="834" viewBox="0 0 834 834">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+        opacity: 0.2;
+      }
+
+      .cls-2 {
+        font-size: 300px;
+        font-family: Roboto;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M438.963,446.084L818,124V822H33Z"/>
+  <text id="_" data-name="?" class="cls-2" transform="translate(44.225 571.693) scale(2.406)">?</text>
+</svg>

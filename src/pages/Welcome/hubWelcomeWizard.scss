@@ -1,0 +1,141 @@
+@import '../../scss/theme';
+@import "../../scss/colours.scss";
+
+
+.infoIconStep{
+    font-size: 36px;
+    color: $sofihubBlue
+}
+
+.noBottomMargin{
+    .ant-legacy-form-item{
+        margin-bottom: 0;
+    }
+}
+
+.welcomeCard{
+    margin-bottom: 30px;
+    .ant-card-head-title{
+        text-align: center;
+        font-size: 16px;
+
+    }
+}
+
+.messageIcon {
+    position: relative;
+    font-size: 76px;
+    color: #9a9a9a;
+    top: -250px;
+    left: 5px;
+    @media (max-width: $screen-xs) {
+        font-size: 50px;
+        top: -180px;
+    }
+}
+
+.hubImg{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 30px;
+    width: 76px;
+    height: 200px;
+    @media (max-width: $screen-xs) {
+        width: 38px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+.reminderImg {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 100px;
+    margin-bottom: 30px;
+    width: 76px;
+    height: 200px;
+    @media (max-width: $screen-xs) {
+        width: 57px;
+        height: 150px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        margin-left:50px;
+    }
+}
+
+.sensorImg {
+    width: 76px;
+    height: 200px;
+    @media (max-width: $screen-xs) {
+        width: 57px;
+        height: 150px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        margin-left:50px;
+    }
+}
+.reminders_ul{
+    padding-left: 20px;
+    padding-right: 30px;
+    column-count: 2;
+    list-style-type: '-  ';
+    @media (max-width: $screen-xs) {
+       columns: 1;
+    }
+}
+
+.hubWelcomeSteps{
+    @media (min-width: 900px) {
+        .ant-steps-item{
+            max-width: 110px;
+            &-content{
+                width: 110px;
+            }
+        }
+    }
+    .ant-steps-horizontal{
+        &-icon{
+            margin-left: 40px !important;
+        }
+    }
+
+}
+
+.welcomeModal{
+    .ant-modal-body{
+        padding: 0;
+    }
+    .ant-card-head{
+        padding: 0;
+        &-title{
+            background: $green;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            @media (max-width: 480px) {
+                font-size: 16px;
+            }
+        }
+    }
+    //.ant-card-head-title{
+    //
+    //}
+    .deviceIconCol{
+        height: auto;
+        width: 120px;
+        margin: auto;
+    }
+    .hub {
+        width: 80px;
+        height: 180px;
+    }
+
+    .beacon {
+        width: 100px;
+        height: 125px;
+    }
+
+    .radar {
+        width: 60px;
+        height: auto;
+        padding-bottom: 8px;
+    }
+}

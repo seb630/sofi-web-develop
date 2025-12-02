@@ -1,0 +1,19 @@
+@import "../../scss/theme";
+
+.HeaderDropdownContainer{
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: $shadow-1-down;
+  .ant-dropdown-menu{
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: $screen-xs) {
+  .HeaderDropdownContainer {
+    width: 100% !important;
+  }
+  .container > * {
+    border-radius: 0 !important;
+  }
+}

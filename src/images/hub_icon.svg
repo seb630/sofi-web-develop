@@ -1,0 +1,31 @@
+<svg id="Sofihub" xmlns="http://www.w3.org/2000/svg" width="813" height="2145" viewBox="0 0 813 2145">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #9a9a9a;
+      }
+
+      .cls-3 {
+        fill: #d9d9d9;
+      }
+
+      .cls-4 {
+        fill: #888;
+      }
+
+      .cls-5 {
+        fill: #d1d1d1;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="0.156" y="39.406" width="812.406" height="1614.934"/>
+  <circle class="cls-2" cx="408.844" cy="1324.92" r="116.406"/>
+  <rect id="Rounded_Rectangle_2" data-name="Rounded Rectangle 2" class="cls-3" x="381.594" y="331.688" width="54.5" height="683.622" rx="5.5" ry="5.5"/>
+  <rect class="cls-2" x="0.156" y="1654.34" width="812.406" height="490.44"/>
+  <rect id="Rounded_Rectangle_3" data-name="Rounded Rectangle 3" class="cls-4" x="143.812" y="1703.91" width="535" height="79.25" rx="5" ry="5"/>
+  <rect class="cls-5" x="257.75" y="-0.219" width="307.125" height="39.625"/>
+</svg>

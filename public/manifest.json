@@ -1,0 +1,22 @@
+{
+  "short_name": "Sofihub",
+  "name": "Sofihub",
+  "icons": [
+    {
+      "src": "logo.ico",
+      "sizes": "164x45",
+      "type": "image/png"
+    },
+    {
+      "src": "logo1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "scope": "./",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#59CBE8",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,34 @@
+@import "colours.scss";
+
+$border-color-split: hsv(0, 0, 91%);  // split border inside a component
+$line-height-base: 1.5715;
+$layout-header-background : #002140;
+$layout-header-height: 80px;
+$font-size-base: 16px;
+$font-family: 'museo-sans', Helvetica, Arial, sans-serif;
+$form-item-margin-bottom: 18px;
+$primary-color: $sofihubBlue;
+$processing-color: $sofihubBlue;
+$success-color: $green;
+$warning-color: $orange;
+$error-color: $rose;
+$text-color: fade(#000,65%);
+$text-color-secondary: $lightText;
+$body-background: #fff;
+$border-width-base: 1px;            // width of the border for a component
+$border-style-base: solid;          // style of a components border
+$heading-color: fade(#000, 85%);
+$screen-xs: 480px;
+$screen-md: 768px;
+$screen-sm: 576px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$collapse-content-padding: 0;
+$shadow-color: rgba(0, 0, 0, 0.15);
+$shadow-1-down: 0 2px 8px $shadow-color;
+$card-radius: 6px;
+$steps-desciption-max-width: 100px;
+$border-radius-base: 4px;
+$menu-item-padding-horizontal: 10px;
+$menu-horizontal-line-height: 46px;
+

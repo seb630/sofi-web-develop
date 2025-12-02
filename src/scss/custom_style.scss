@@ -1,0 +1,368 @@
+@import "mixins.scss";
+@import "colours.scss";
+@import "theme.scss";
+
+.headerBar {
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+    align-items: center;
+    display: flex;
+    height: 100%;
+
+    &__controls {
+        align-items: center;
+        border-bottom: 0;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 20px;
+
+        .ant-menu-submenu-title {
+            padding: 0 5px;
+        }
+
+        .ant-menu-item {
+            padding: 0 5px;
+            border-bottom: 0 !important;
+        }
+
+    }
+}
+
+.contentPage {
+    padding: 30px;
+    overflow-x: auto;
+    @media all and (max-width:576px) {
+        padding: 15px;
+    }
+}
+
+.notificationCard {
+  max-width: 1000px;
+  display: block;
+  margin: auto;
+}
+
+.sideBar {
+    background: $white;
+    overflow: hidden;
+
+    &--rose {
+        .sideBar__tab {
+            background: #e8e8e8;
+
+            &.active {
+                background: $primary-color;
+                a {
+                    color: $white;
+                }
+
+            }
+
+            a {
+                color: #333;
+            }
+        }
+
+        .sideBar__tabs {
+            border-color: $primary-color;
+        }
+    }
+
+    &.ant-layout-sider-collapsed {
+        .sideBar__tabs , .pondrsHubBtn{
+            display: none;
+        }
+
+        .sideBar__logo {
+          padding-left: 0;
+        }
+    }
+
+    &__tabs {
+        border-bottom: 2px solid;
+        display: flex;
+        justify-content: center;
+        padding: 6px 10px 0 10px;
+    }
+
+    &__tab {
+        border-radius: 10px 10px 0 0;
+        margin-right: 5px;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        flex: 1;
+
+        a {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+    }
+
+    &__logo {
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        overflow: hidden;
+        transition: all 0.3s;
+        height: 80px;
+        padding-left: 30px;
+    }
+
+    &__skeleton {
+        padding: 5px 24px;
+        ul {
+            padding: 0;
+        }
+    }
+
+    &__menu {
+        border: 0;
+      .ant-menu-submenu-title .anticon + span{
+        margin-left:20px;
+      }
+    }
+}
+
+.pondrsHubBtn{
+    position: relative;
+
+    &__display {
+      border-radius: 0;
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: #000;
+      border: none;
+      border-bottom: solid 1px #d9d9d9;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      white-space: pre-line;
+      line-height: normal;
+
+      &:hover {
+        background: $white;
+        color: $darkText;
+        box-shadow: none;
+        border-color: $lightborder;
+      }
+
+      &:focus {
+        background: $white;
+        color: $darkText;
+        box-shadow: none;
+        border-color: $lightborder;
+      }
+
+      &:active {
+        @extend :focus;
+
+        &:focus {
+          @extend :focus;
+        }
+
+        &:hover {
+          @extend :focus;
+        }
+      }
+
+      &.small_btn {
+        margin-top: 0;
+      }
+
+      &.remove_cursor {
+        cursor: default;
+      }
+
+      .selectedHubName {
+        max-width: 200px;
+        @include textOverflow();
+      }
+    }
+
+    p {
+      color: $lightText;
+      margin: 0;
+      font-size: 14px;
+    }
+}
+
+.menu {
+    &-hublist {
+        overflow-x: auto;
+        .hubName {
+            display: inline-block;
+            max-width: 200px;
+            @include textOverflow;
+        }
+    }
+}
+
+.card {
+    &-shadow {
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16)
+    }
+
+    &-radius {
+        border-radius: 5px;
+    }
+}
+
+.skeleton {
+    background: $white;
+    padding: 20px;
+}
+
+.ant-menu {
+    &-item-selected {
+        a:link ,a:visited {
+            color: $primary-color;
+        }
+    }
+}
+
+.ant-table-body {
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.ant-tabs-nav-list{
+  margin-left: 12px;
+}
+
+.ant-tabs-tab{
+  padding: 12px;
+}
+
+.ant-card-head-title {
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.ant-switch {
+    $antSwitch: &;
+    &--online {
+        &#{ $antSwitch }-checked {
+            background: $green;
+        }
+    }
+}
+
+.ant-card-body{
+    .ant-table-title{
+        padding-top: 0;
+    }
+}
+
+.tableTitle {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.deviceSelection{
+  width: 100%;
+  display: inline-flex;
+  &__logo {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    transition: all 0.3s;
+    height: 80px;
+    padding-left: 30px;
+    @media all and (max-width:$screen-xs) {
+      width: 50%;
+      padding-left: 0;
+    }
+  }
+  &__version {
+    position: absolute;
+    right: 0;
+    color: #b3bbce;
+    font-size: 11px;
+    margin-right: 30px;
+  }
+}
+
+.ant-modal-confirm-info .ant-modal-confirm-body > .anticon{
+  color: $warning-color;
+}
+.ant-tabs-tab.ant-tabs-tab-active{
+  font-weight: 500;
+}
+.ant-btn-icon-only{
+  width: 33px;
+  height: 33px;
+}
+
+.NDISCollapse{
+  margin-top: 12px;
+  .ant-collapse-content > .ant-collapse-content-box{
+    padding: 12px;
+  }
+}
+
+.cancelSubscriptionIcon{
+
+  &-SIM{
+    font-size: 180px;
+    animation: cancelSubscription 5s linear 1s forwards;
+  }
+  &-message{
+    font-size: 100px;
+    animation: cancelSubscriptionMessage 5s linear 1s forwards;
+  }
+  &-close{
+    font-size: 100px;
+    opacity: 0;
+    animation: cancelSubscriptionX 5s linear 1s forwards;
+    position: absolute;
+    left: 50px;
+  }
+}
+
+.cancelSubscriptionText {
+  animation: cancelSubscriptionTextAnimate 5s linear 1s forwards;
+}
+
+@keyframes cancelSubscription {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+    color: $rose;
+  }
+}
+
+@keyframes cancelSubscriptionTextAnimate {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    color: $rose;
+  }
+}
+
+@keyframes cancelSubscriptionMessage {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes cancelSubscriptionX {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    color: $rose;
+  }
+}

@@ -1,0 +1,355 @@
+#!/bin/bash
+
+yes_no_prompt() {
+    # Arguments:
+    _question_to_print="$1"
+
+    _yes_no_result="NotSet"
+
+    while [ $_yes_no_result == "NotSet" ]; do
+        echo "$_question_to_print"
+        read -r _temp
+
+        if [ -z "$_temp" ]; then
+            _yes_no_result=empty
+        elif [ "${_temp:0:1}" == "y" ]; then
+            _yes_no_result=y
+        elif [ "${_temp:0:1}" == "n" ]; then
+            _yes_no_result=n
+        else
+            echo "Please enter a yes or no value."
+        fi
+    done
+
+    unset _question_to_print
+}
+
+check_if_aws_shell_installed() {
+    aws --version &>/dev/null
+    _aws_version_exit_status=$?
+
+    if [ ! $_aws_version_exit_status == 0 ]; then
+        echo "ERROR: AWS Shell not installed!"
+        echo "AWS Shell is needed to upload files to S3, and interact with CloudFront - both of which are needed for deploying this repo."
+        echo "Please install AWS Shell: https://github.com/awslabs/aws-shell"
+        echo "Exiting..."
+        exit -1
+    fi
+}
+
+check_if_npm_installed() {
+    npm -v &>/dev/null
+    _npm_version_exit_status=$?
+
+    if [ ! $_npm_version_exit_status == 0 ]; then
+        echo "ERROR: Npm not installed!"
+        echo "Please install npm using Homebrew (MacOS) or https://github.com/npm/npm"
+        echo "Exiting..."
+        exit -1
+    fi
+}
+
+check_if_yarn_installed() {
+    yarn -v &>/dev/null
+    _yarn_version_exit_status=$?
+
+    if [ ! $_yarn_version_exit_status == 0 ]; then
+        echo "ERROR: Yarn not installed!"
+        echo "Please install yarn"
+        echo "Exiting..."
+        exit -1
+    fi
+}
+
+check_if_built_previously() {
+    if [ ! -f ./build/index.html ]; then
+        echo "false"
+    else
+        echo "true"
+    fi
+}
+
+find_var_in_env_file() {
+    # Arguments:
+    _env_to_find="$1"
+
+    _grep_match=$(grep -F $_env_to_find .env)
+
+    if [ "$_grep_match" == "" ]; then
+        echo "ERROR: Grep exited with a non zero status code."
+        echo "       This means that:"
+        echo "         - The .env file does not exist (are you running this script from the correct directory?)"
+        echo "         - There was environment variable named '$_env_to_find' in the .env file (have you updated the .env file?)"
+        echo "         - There is a bug in this script (./deploy_to_cloudfront)"
+        echo "Exiting..."
+        exit -1
+    fi
+
+    _var_value=$(cut -d'=' -f2 <<< $_grep_match )
+    _find_var_in_env_file_result=$_var_value
+}
+
+find_var_in_global_constants_file() {
+    # Arguments:
+    _env_to_find="$1"
+
+    _grep_match=$(grep -F $_env_to_find src/_constants/global.constants.js)
+
+    if [ "$_grep_match" == "" ]; then
+        echo "ERROR: Grep exited with a non zero status code."
+        echo "       This means that:"
+        echo "         - The .global.constants.js file does not exist (are you running this script from the correct directory?)"
+        echo "         - There was environment variable named '$_env_to_find' in the .env file (have you updated the .global.constants.js file?)"
+        echo "         - There is a bug in this script (./deploy_to_cloudfront)"
+        echo "Exiting..."
+        exit -1
+    fi
+
+    _var_value=$(cut -d' ' -f2 <<< $_grep_match )
+    _find_var_in_env_file_result=$_var_value
+}
+
+get_cloudfront_distribution_id() {
+    _cloudfront_distribution_id=$(aws cloudfront list-distributions --query "DistributionList.Items[?Comment == '$_cloud_name-$_environment-$_app_name'].Id" | jq -r '.[0]')
+
+    if [ -z "$_cloudfront_distribution_id" ]; then
+        echo "ERROR: Unable to retrieve CloudFront Distributions Id! Does Distribution exist?"
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while trying to get the CloudFront distribution ID, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -2
+    fi
+}
+
+create_timestamp_file() {
+    _utc_date_time_stamp=$(date -u +%Y%m%d_%H%M%S)
+
+    touch ./build/deployed_at
+    _touch_result=$?
+
+    if [ ! $_touch_result == 0 ]; then
+        echo "ERROR: Unable to create: './build/deployed_at' file."
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while trying to create a timestamp file, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -1
+    fi
+
+    echo $_utc_date_time_stamp > ./build/deployed_at
+    _pipe_result=$?
+
+    if [ ! $_pipe_result == 0 ]; then
+        echo "ERROR: Unable to add content to file: './build/deployed_at'."
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while trying to populate the timestamp file, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -3
+    fi
+}
+
+empty_s3_bucket() {
+    aws s3 rm s3://$_cloud_name-$_environment-cloudfront-$_app_name-distribution --recursive
+    _empty_s3_result=$?
+
+    if [ ! $_empty_s3_result == 0 ]; then
+        echo "ERROR: Unable to empty S3 bucket."
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while trying to empty the S3 bucket, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -4
+    fi
+}
+
+upload_to_s3() {
+    aws s3 cp ./build s3://$_cloud_name-$_environment-cloudfront-$_app_name-distribution --recursive --cache-control 'max-age=600'
+    _upload_to_s3=$?
+
+    if [ ! $_upload_to_s3 == 0 ]; then
+        echo "ERROR: Unable to upload to S3 bucket."
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while trying to upload to the S3 bucket, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -5
+    fi
+}
+
+invalidate_cloudfront_distribution() {
+    aws cloudfront create-invalidation --distribution-id $_cloudfront_distribution_id --path "/*"
+    _aws_cloudfront_create_invalidateion_result=$?
+
+    if [ ! $_aws_cloudfront_create_invalidateion_result == 0 ]; then
+        echo "ERROR: Unable to create invalidation for CloudFront Distribution with Id: $_cloudfront_distribution_id"
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while trying to invalidate the CloudFront distribution, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -6
+    fi
+}
+
+cleanup() {
+    rm ./build/deployed_at
+    _rm_result=$?
+
+    if [ ! $_rm_result == 0 ]; then
+        echo "ERROR: Unable to remove temporary file created: './build/deployed_at'."
+        echo "Exiting..."
+        exit -1
+    fi
+}
+
+if [ "$CI" == "true" ]; then
+    echo "INFO: Detected we're inside CI, running in silent mode."
+    _silent="true"
+else
+    _silent="false"
+fi
+
+# Function calls
+check_if_aws_shell_installed
+check_if_npm_installed
+check_if_yarn_installed
+
+_build_previously=$(check_if_built_previously)
+
+# Get env vars
+find_var_in_env_file CLOUD_NAME
+_cloud_name=$_find_var_in_env_file_result
+find_var_in_env_file ENVIRONMENT
+_environment=$_find_var_in_env_file_result
+find_var_in_env_file APP_NAME
+_app_name=$_find_var_in_env_file_result
+find_var_in_global_constants_file API_LOGIN_URL
+_login_url=$_find_var_in_env_file_result
+find_var_in_global_constants_file API_BASE_URL
+_api_url=$_find_var_in_env_file_result
+
+_should_rebuild="unknown"
+
+if [ "$_silent" == "true" ]; then
+    _should_rebuild="y"
+else
+    if [ "$_build_previously" == "false" ]; then
+        echo
+        echo "INFO: Could not find './build/index.html', setting rebuild flag to true."
+        _should_rebuild="y"
+    else
+        echo
+        yes_no_prompt "Do you want to rebuild? [y/n Default:y]"
+        _should_rebuild=$_yes_no_result
+
+        if [ "$_should_rebuild" == "empty" ]; then
+            _should_rebuild="y"
+        fi
+    fi
+fi
+
+# Summarise what the script knows / what actions will be taken if we proceed
+echo
+echo "============ Summary ============"
+echo "Variables found from .env file:"
+echo "  - ENVIRONMENT            = $_environment"
+echo "  - CLOUD_NAME             = $_cloud_name"
+echo "  - APP_NAME               = $_app_name"
+echo "  - API_LOGIN_URL          = ($_login_url)"
+echo "  - API_BASE_URL           = ($_api_url)"
+echo "Actions to be performed:"
+if [ "$_should_rebuild" == "y" ]; then
+    echo "  - Script will perform rebuild: Yes"
+else
+    echo "  - Script will perform rebuild: No"
+fi
+echo "  - Deploy to S3 / CloudFront"
+echo "Proceeding with a deployment will:"
+echo "  - Empty the existing S3 buckets contents"
+echo "  - Replace the existing S3 buckets contents"
+echo "  - WARN: These operations cannot be undone!"
+echo "================================="
+echo
+
+if [ "$_silent" == "false" ]; then
+    yes_no_prompt "Are these details correct? Proceed with actions / deployment? [y/n Default: n]"
+    _proceed_with_deployment=$_yes_no_result
+
+    if [ ! "$_proceed_with_deployment" == "y" ]; then
+        echo "Exiting deployment..."
+        exit 0
+    fi
+fi
+
+if [ "$_silent" == "false" ]; then
+    _who_am_i=$(whoami 2>&1)
+    curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#0288D1\", \"text\":\"Someone by the username of: \`$_who_am_i\` is about to do a manual deployment of \`portal\` to \`$_cloud_name-$_environment\`... If you don't hear from me (Manual Deploy Bot) soon then something went wrong and the deployment may not have been completed.\" } ] }" https://hooks.slack.com/services/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
+fi
+
+# User agreed to proceed, continue
+if [ "$_should_rebuild" == "y" ]; then
+
+    # Rebuild dependencies if not inside CI
+    if [ "$CI" == "true" ]; then
+        echo "INFO: Detected we're inside CI, avoiding deletion of old dependencies as clean dependencies already downloaded at start of build"
+    else
+        echo
+        echo "INFO: Deleting node_modules folder if exists ('rm -rf node_modules')..."
+        echo
+        rm -rf node_modules
+
+        echo
+        echo "INFO: Installing dependencies ('npm install --legacy-peer-deps')..."
+        echo
+        npm install --legacy-peer-deps
+
+        echo
+        echo "INFO: Removing package-lock.json as its not tracked in the repo ('rm package-lock.json')..."
+        echo
+        rm package-lock.json
+    fi
+
+    echo
+    echo "INFO: Rebuilding with npm ('npm run build')..."
+    echo
+    npm run build
+    _npm_build_result=$?
+
+    if [ ! $_npm_build_result == 0 ]; then
+        echo "ERROR: Npm exited with a '$_npm_build_result' result code"
+        echo "       Check npm logs above"
+        echo "Exiting..."
+
+        if [ "$_silent" == "false" ]; then
+            curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#d32f2f\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` has encountered an error while rebuilding, deployment has been canceled.\" } ] }" https://hooks.slack.com/services/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
+        fi
+
+        exit -1
+    fi
+fi
+
+# Creates `_cloudfront_distribution_id` variable
+get_cloudfront_distribution_id
+create_timestamp_file
+empty_s3_bucket
+upload_to_s3
+invalidate_cloudfront_distribution
+
+if [ "$_silent" == "false" ]; then
+    curl -X POST -H 'Content-type: application/json' --data "{\"attachments\": [ { \"color\": \"#388E3C\", \"text\":\"The manual deployment of \`portal\` to \`$_cloud_name-$_environment\` by someone with the username: \`$_who_am_i\` was performed successfully. Checkout <https://portal.$_cloud_name-$_environment.sofieco.net/|this link> to see if the portal app is back up and running. If after a few minutes you get the old portal app or something has gone wrong, firstly try refreshing whilst bypassing your cache (known as a force refresh, on some browsers this is done by pressing \`Shift\` + \`Ctrl\` + \`R\` or \`Shift\` + \`Cmd\` + \`R\`). Otherwise take a look at what CloudFront is saying about the deployment / have a chat with the user who deployed the changes.\" } ] }" https://hooks.slack.com/services/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
+fi
+
+cleanup

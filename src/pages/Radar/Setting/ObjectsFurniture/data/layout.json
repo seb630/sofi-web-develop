@@ -1,0 +1,62 @@
+{
+  "type": "mesh3d",
+  "margin": {
+    "l": 20,
+    "r": 20,
+    "b": 10,
+    "t": 30,
+    "pad": 4
+  },
+  "datarevision": 0,
+  "uirevision": true,
+  "showlegend": true,
+  "autosize": true,
+  "scene": {
+    "dragmode": true,
+    "aspectmode": "manual",
+    "aspectratio": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "xaxis": {
+      "title": {
+        "text": ""
+      },
+      "range": [
+        0,
+        4
+      ],
+      "type": "linear"
+    },
+    "yaxis": {
+      "title": {
+        "text": ""
+      },
+      "range": [
+        0,
+        4
+      ],
+      "type": "linear"
+    },
+    "zaxis": {
+      "dtick": 1,
+      "tick0": 0,
+      "range": [
+        0,
+        2.2
+      ],
+      "title": {
+        "text": "Wall"
+      },
+      "type": "linear"
+    },
+    "camera": {
+      "eye": {
+        "x": 1.8,
+        "y": 1.8,
+        "z": 1.8
+      }
+    }
+  }
+}

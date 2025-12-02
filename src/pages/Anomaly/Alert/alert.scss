@@ -1,0 +1,95 @@
+@import "../../../scss/colours";
+
+
+.status{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile{
+  height: 50px!important;
+}
+
+.status-text{
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  max-height: 180px;
+}
+
+.margin-right{
+  margin-right: 10px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.thin {
+  font-weight: 300;
+  font-size: smaller;
+  color: $lightText;
+}
+
+.right-container {
+  width: 100%;
+  padding-left: 16px;
+  padding-top: 10px;
+  background: white;
+  @media (max-width: 400px) {
+    font-size: 14px;
+    padding-left:4px;
+  }
+}
+
+.green {
+  background: $green;
+}
+
+:export {red: $rose;}
+:export {green: $green;}
+
+.red{
+  background: $rose;
+}
+
+.blue{
+  background: $blue;
+}
+
+.arrow-group{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.short-input {
+  .ant-calendar-picker-input{
+    max-width: 120px;
+  }
+}
+
+.fontRed{
+  color: $rose
+}
+.fontGreen{
+  color: $green
+}
+
+.beaconAlertCard{
+  border-top-right-radius: 0;
+  .borderTop{
+    border-top: 2px solid;
+  }
+
+  .borderRed{
+    border-color: $rose;
+  }
+  .borderGreen{
+    border-color: $blue;
+  }
+}

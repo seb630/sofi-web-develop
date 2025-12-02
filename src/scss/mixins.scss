@@ -1,0 +1,121 @@
+@mixin rounded-corners($size){
+    border-radius:$size;
+    -moz-border-radius:$size;
+    -webkit-border-radius:$size;
+    -ms-border-radius: $size;
+}
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+@mixin card($depth) {
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// COVER BACKGROUND
+
+@mixin cover-background($img-uri) {
+    background: url($img-uri) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@mixin transform-rotate($degrees){
+      -webkit-transform: rotate($degrees);
+      -moz-transform: rotate($degrees);
+      -o-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+      transform: rotate($degrees);
+}
+
+@mixin translateX($x) {
+  -webkit-transform: translateX($x);
+      -ms-transform: translateX($x);
+       -o-transform: translateX($x);
+          transform: translateX($x);
+}
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin placeholderDir($direction) {
+    &::-webkit-input-placeholder { /* WebKit browsers */
+      direction: $direction;
+      padding-right: 3px;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        direction: $direction;
+        padding-right: 3px;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ but I'm not sure about working */
+        direction: $direction;
+        padding-right: 3px;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        direction: $direction;
+        padding-right: 3px;
+    }
+}
+
+@mixin textOverflow {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
+
+/**************************
+  DESKTOP FIRST BREAKPOINTS
+*********************/
+
+$breakpoints: (
+  'sm': 576px,
+  'md': 767px,
+  'lg': 992px,
+  'xl': 1200px
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else if($breakpoint == 'xxl') {
+    // Prints a media query based on the value
+    @media (min-width: 1200px) {
+      @content;
+    } 
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

@@ -1,0 +1,30 @@
+$blue: #51C6E1;
+$green: #44AF86;
+$darkgreen: #2F6D7C;
+$rose: #E03B50;
+$orange: #FFA500;
+$backgroundGrey: #F0F2F5;
+$darkText: #384954;
+$midText: #737D96;
+$lightText: #B3BBCE ;
+$white: #fff;
+$lightgrey:#ddd;
+$lightborder:#eee;
+$gradientStart: #4A148C;
+$gradientEnd: #03A9F4;
+$sofihubBlue: #59CBE8;
+$sofihubGray: #63666A;
+$pink: #FDEDEF;
+$lightGreen: #EEF7F3;
+$brown: #AF8644;
+
+:export {gradientStart: $gradientStart;}
+:export {gradientEnd: $gradientEnd;}
+:export {red: $rose;}
+:export {orange: $orange;}
+:export {blue: $sofihubBlue;}
+:export {lightText: $lightText;}
+:export {green: $green;}
+:export {grey: $midText;}
+:export {brown: $brown;}
+:export {darkText: $darkText}

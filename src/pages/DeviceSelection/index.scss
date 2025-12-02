@@ -1,0 +1,195 @@
+@import "../../scss/colours";
+@import "../../scss/theme";
+
+$switch-lg-height: 24px;
+
+.search{
+  margin-bottom: 16px !important;
+
+  &-col{
+    text-align: center;
+    @media all and (max-width: 576px) {
+      display: flex;
+    }
+
+  }
+
+  .ant-btn{
+    border-radius: 100px;
+  }
+
+  .searchButton{
+    width: 100%;
+    max-width: calc(100vw - 225px);
+    overflow: hidden;
+    white-space: pre;
+    text-overflow:ellipsis;
+    display:inline-block;
+  }
+
+  .ant-switch{
+    margin: 0 16px 0 0;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: $switch-lg-height * 2.5;
+    height: $switch-lg-height;
+    line-height: $switch-lg-height - 2px;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    cursor: pointer;
+    user-select: none;
+
+    @media all and (max-width: 576px) {
+      top: 0;
+    }
+
+    &-inner {
+      display: block;
+      font-size: 14px;
+    }
+
+    &-loading-icon,
+    &::after {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: $switch-lg-height - 4px;
+      height: $switch-lg-height - 4px;
+      border-radius: 18px;
+      cursor: pointer;
+      content: ' ';
+    }
+
+    &-checked {
+      background: $green;
+      .ant-switch-inner {
+        margin-right: $switch-lg-height;
+      }
+
+      &::after {
+        left: 100%;
+        margin-left: -1px;
+        transform: translateX(-100%);
+      }
+    }
+  }
+  .ant-input-search {
+    flex: 1;
+    width: calc((100% - 100px)* 0.8);
+    max-width: 400px;
+  }
+  .ant-input{
+    &-suffix{
+      font-size: 20px;
+    }
+  }
+}
+
+.mobileSearch{
+  .ant-input{
+    border-radius: 100px;
+    &-suffix{
+      font-size: 18px;
+    }
+  }
+}
+
+.noResult{
+  margin-bottom: 16px;
+  color: $midText;
+  .anticon{
+    font-size: 64px;
+    margin-right: 8px;
+    @media all and (max-width: 576px) {
+      font-size: 56px;
+    }
+  }
+  p{
+    max-width: 360px;
+    font-size: 28px;
+    overflow: hidden;
+    overflow-wrap:break-word;
+    @media all and (max-width: 576px) {
+      max-width: 240px;
+      font-size: 22px;
+    }
+  }
+}
+
+.deviceGroup{
+  .ant-collapse-borderless{
+    background: $backgroundGrey;
+  }
+}
+
+.beaconsMapList{
+  height: calc(100vh - 300px)!important;
+  border-radius: 0 !important;
+  overflow-y: scroll;
+  .ant-list-item{
+    font-weight: bold;
+    padding-left: 24px;
+  }
+  .ant-list-item-meta-avatar{
+    font-size: 40px;
+  }
+  .ant-list-item-meta-title{
+    a{
+      color: white;
+    }
+  }
+  .blu{
+    background: $green;
+  }
+  .red{
+    background: $rose;
+  }
+  .ylw{
+    background: $orange;
+  }
+}
+
+.beaconSelect{
+  width: 100%;
+}
+
+.moreCard{
+  padding-left: 24px;
+  .title{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .desc{
+    font-size:14px;
+  }
+}
+
+.cluster-marker {
+  border-radius: 50%;
+  border: black 3px solid;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker-red {
+  color: #fff;
+  background: $rose;
+}
+.marker-ylw {
+  color: #fff;
+  background: $orange;
+}
+.marker-wht{
+  color: black;
+  background: white;
+}
+.marker-blu{
+  color: #fff;
+  background: #1978c8;
+}

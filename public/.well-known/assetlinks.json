@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.sofihub.portal",
+               "sha256_cert_fingerprints": ["AC:46:92:91:A8:3B:FE:48:62:2B:10:D1:9F:5D:0E:98:C2:09:79:EE:ED:D1:1A:79:53:9A:F6:DA:0B:E7:FC:FA","67:1F:DC:CB:7F:20:A1:29:3C:2A:22:A9:FD:A7:66:F0:0B:F4:41:66:ED:41:73:AC:69:9F:5E:35:9C:B7:97:2A"] }
+}]

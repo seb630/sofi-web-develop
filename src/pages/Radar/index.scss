@@ -1,0 +1,99 @@
+@import '../../scss/colours';
+@import '../../scss/theme';
+
+$bg-color: white;
+$dot-color: $green;
+
+// Dimensions
+$dot-size: 0.5px;
+$dot-space: 3px;
+
+.radarStatusContainer {
+  margin: 30px;
+  position: relative;
+  font-weight: 500;
+  vertical-align: middle;
+  white-space: pre;
+  @media all and (max-width: $screen-md) {
+    margin: 16px;
+  }
+  .fontHeading{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .statusRightContainer{
+    margin: 6px 12px;
+  }
+  .avatarContainer{
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    img{
+      font-size: 100px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 66px;
+    }
+  }
+}
+
+.radarStatusCard{
+  color: white;
+  font-size: 14px;
+  @media all and (max-width: $screen-md) {
+    font-size: 12px;
+  }
+  .fontHeading{
+    font-weight: 600;
+  }
+  .cloudIcon{
+    line-height: 1;
+    font-weight: 600;
+    font-size: 70px;
+    text-align: center;
+  }
+  .personIcon{
+    line-height: 1;
+    font-weight: 600;
+    font-size: 52px;
+    text-align: center;
+  }
+  .alignBottom{
+    font-size: 16px;
+    width: 100%;
+    margin-top: auto;
+  }
+  .ant-card-body{
+    padding: 0 12px;
+    height: 140px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.radarMapContainer{
+  margin: 30px;
+  @media all and (max-width: $screen-sm) {
+    height: 750px;
+  }
+}
+
+.disabledCard {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.offlineStrip{
+  background-image: repeating-linear-gradient(-45deg,
+          $orange,
+          $orange 2px,
+          black 3px,
+          black 5px);
+}

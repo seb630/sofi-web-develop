@@ -1,0 +1,20 @@
+@import '~@ant-design/compatible/assets/index.css';
+
+.ant-legacy-form-item {
+  box-sizing: border-box;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 16px;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  margin: 0 0 18px;
+  vertical-align: top;
+}
+
+.ant-legacy-form {
+  font-size: 16px;
+  label{
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "color": "#e5dee5",
+  "flatshading": true,
+  "alphahull": 5,
+  "opacity": 0.5,
+  "i" : [7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2],
+  "j" : [3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3],
+  "k" : [0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6],
+  "showscale": false,
+  "x":[],
+  "y":[],
+  "z":[],
+  "type": "mesh3d",
+  "hoverinfo": "name",
+  "lighting": {
+    "ambient": 0.18,
+    "diffuse": 1,
+    "facenormalsepsilon": 0,
+    "fresnel": 0.1,
+    "roughness": 0.1,
+    "specular": 1
+  },
+  "lightposition": {
+    "x": 3000,
+    "y": 3000,
+    "z": 10000
+  }
+}

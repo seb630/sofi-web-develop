@@ -1,0 +1,128 @@
+@import "../../scss/colours.scss";
+@import "../../scss/mixins.scss";
+@import "../../scss/theme.scss";
+:export {green: $green;}
+:export {red: $rose;}
+
+.loginPage {
+    .success {
+        font-size:24px;
+        font-weight:500;
+        color: $green;
+    }
+
+    .error {
+        font-size:28px;
+        font-weight:500;
+        margin-bottom: 10px;
+        color: $rose;
+    }
+    &-region-container {
+        margin: auto;
+        height: 100vh;
+        .logo{
+            margin-bottom: 5vh;
+        }
+        .regionArea{
+            text-align: center;
+
+        }
+        .ant-list-item-meta-title{
+            font-size: 28px;
+        }
+        .ant-divider{
+            font-size: 28px;
+            @media all and (max-width: 576px) {
+                font-size: 22px;
+            }
+            &-horizontal{
+                &::before,
+                &::after {
+                    border-top: 1px solid  ;
+                }
+            }
+        }
+    }
+
+    &-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    &-left-container {
+        position: relative;
+        flex-grow: 1;
+        flex-shrink: 1;
+        clear: both;
+        margin: auto;
+        max-width: 600px;
+    }
+    &-content {
+        background: $white;
+
+        position: relative;
+        border: 2px solid $lightgrey;
+        border-radius: 10px;
+        margin: 16px;
+    }
+
+    &-footer {
+        height: 10vh;
+        position: relative;
+        margin: 16px;
+        a{
+            font-size: 18px;
+            color: $lightText;
+            font-weight: 500;
+        }
+    }
+
+    &-form {
+        padding: 30px;
+        width: 100%;
+
+        &__logo {
+            margin-bottom: 30px;
+            text-align: center;
+            @media all and (max-width: 576px) {
+                margin-bottom: 0;
+            }
+        }
+        .button {
+            &-submit {
+                display: block;
+                padding: 6px 12px;
+                height: 60px;
+                width: 100%;
+            }
+            &-forgot {
+                display: block;
+                padding: 6px 12px;
+                height: 60px;
+                width: 100%;
+            }
+            &-create {
+                color: $white;
+                background-color: $blue;
+                display: block;
+                padding: 6px 12px;
+                height: 60px;
+                width: 100%;
+            }
+        }
+
+        @media all and (max-width: 576px) {
+            padding-top: 0;
+        }
+    }
+    .exclamation{
+        color: $blue;
+        font-size: 80px;
+
+    }
+}
+
+.app-icons{
+    display: flex;
+    align-items: center;
+}

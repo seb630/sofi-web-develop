@@ -1,0 +1,37 @@
+@import '../../../scss/theme';
+
+$header-hover-bg: rgba(0, 0, 0, 0.025);
+
+.right {
+  width: -webkit-fill-available;
+  float: right;
+  height: 100%;
+  overflow: hidden;
+  .ant-menu-horizontal{
+    line-height: $menu-horizontal-line-height;
+  }
+  .account {
+    .avatar {
+      margin-right: 8px;
+      color: rgba(0,0,0,.65);
+      background: rgba(255, 255, 255, 0.85);
+    }
+  }
+}
+.menu {
+  :global(.anticon) {
+    margin-right: 8px;
+  }
+  :global(.ant-dropdown-menu-item) {
+    min-width: 160px;
+  }
+}
+
+@media only screen and (max-width: $screen-md) {
+  .name {
+    display: none;
+  }
+  .avatar {
+    margin-right: 0;
+  }
+}

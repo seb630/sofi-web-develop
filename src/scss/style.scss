@@ -1,0 +1,998 @@
+@import "mixins.scss";
+@import "colours.scss";
+@import "antLegacy";
+@import "theme";
+@import "utilities";
+@import "react-phone-number-input";
+@import "custom_style";
+@import "~react-credit-cards/lib/styles.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+html{
+    height: 100%;
+}
+
+body{
+    background: $white;
+    height: 100%;
+    font-family: 'museo-sans', sans-serif;
+    // white-space: pre-wrap;
+    position: relative;
+    font-weight: 300;
+    margin: 0;
+    a{
+        color: #337ab7;
+    }
+    a:active, a:hover{
+        color: #23527c;
+        text-decoration: underline;
+    }
+}
+
+.rccs__chip{
+    background-image:none;
+}
+
+.react-calendar-timeline .rct-dateHeader-primary {
+    background: #f0f0f0 !important;
+    color: $darkText !important;
+}
+
+.rct-sidebar-header{
+    background: #f0f0f0 !important;
+    color: $darkText !important;
+}
+
+.marginLR {
+    margin: 0 5px;
+}
+
+.infoIcon {
+  float: right;
+}
+
+[placeholder] {
+  @include placeholder($lightText);
+}
+
+.icon-wrapper {
+  position: relative;
+  padding: 0 30px;
+}
+
+.ant-time-picker-icon {
+    top: 45%
+}
+
+.icon-wrapper .anticon {
+  position: absolute;
+  top: -5px;
+  line-height: 1;
+  font-size: 22px;
+  color: rgba(0, 0, 0, .25);
+}
+
+.icon-wrapper .anticon:first-child {
+  left: 0;
+}
+
+.icon-wrapper .anticon:last-child {
+  right: 0;
+}
+
+.title{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.roomIcon {
+    position: relative;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.validation {
+    color: $rose;
+    font-size: 12px;
+    position: absolute;
+    top: 63px;
+    left: 0;
+}
+
+.ant-list-header {
+    margin-top: -12px;
+    padding-top: 0;
+}
+
+.ant-list-item-meta {
+    font-size: 16px;
+}
+
+.alert {
+    color: $rose;
+    font-size: 12px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+// BUTTONS
+
+.btn {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background-color: $rose;
+    text-align: center;
+    font-size: 14px;
+    color: $white;
+    margin: 0;
+    outline: none;
+
+    &:hover {
+        background-color: $rose;
+        color: $white;
+        outline: none;
+    }
+
+    &:focus {
+        background-color: $rose;
+        color: $white;
+        outline: none;
+    }
+
+    &:active {
+      @extend :focus;
+
+      &:focus {
+        @extend :focus;
+      }
+
+      &:hover {
+        @extend :focus;
+      }
+    }
+}
+
+.primary-button {
+    background-color: $rose;
+
+    &:hover {
+        background-color: $rose;
+    }
+}
+
+.input {
+    position: relative;
+}
+
+.input-label {
+    position: relative;
+
+    .validation {
+        top: 93px;
+    }
+}
+
+/*dashboard*/
+
+.version {
+  padding-top: 30px;
+  color: #b3bbce;
+  font-size: 11px;
+  float: right;
+  margin-right: 30px;
+}
+
+.ant-dropdown-menu {
+    min-width: 160px;
+    border-radius: 4px;
+    li{
+        a{
+            font-size: 16px;
+            color: $darkText;
+        }
+    }
+}
+
+.hubIcon {
+    &-offline{
+        background: $rose;
+        border-color: $rose;
+    }
+    &-online{
+        background: $green;
+        border-color: $green;
+    }
+    border: 5px solid;
+    display: inline-table;
+    font-size: 30px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.beaconIcon {
+    &-offline{
+        background: $rose;
+        border-color: $rose;
+    }
+    &-online{
+        background: $green;
+        border-color: $green;
+    }
+    border: 9px solid;
+    display: inline-table;
+    font-size: 24px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+
+.deviceSelectionTitle {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.deviceSelectionSmall {
+    font-size: 14px;
+    font-weight: 400;
+    .online{
+        color: $green;
+    }
+    .offline{
+        color: $rose;
+    }
+}
+
+.fixedHeightContainer{
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    overflow: auto;
+    padding: 8px 24px;
+    height: 400px;
+    @media (max-width: $screen-sm) {
+        height: 450px;
+    }
+}
+
+.filterInput {
+    width: 50%;
+    margin-left: 20px;
+}
+
+:root .ant-dropdown-trigger .anticon:not(.anticon-ellipsis), :root .ant-dropdown-link .anticon:not(.anticon-ellipsis) {
+    font-size: 18px;
+}
+
+.personalSettingsDetails {
+    overflow: hidden;
+
+    .form-group {
+        .ant-row{
+            margin-bottom: 24px;
+        }
+        input{
+            font-weight: 300;
+        }
+
+        select {
+            font-weight: 300;
+        }
+    }
+}
+
+@keyframes bullet {
+  0%, 100% {
+    width: 25px;
+  }
+  40% {
+    width: 30px;
+  }
+}
+
+.greenTooltip{
+  color: $green;
+}
+.orangeTooltip{
+  color: $orange;
+}
+.redTooltip{
+  color: $rose;
+}
+.blueTooltip{
+    color: $sofihubBlue;
+}
+.system_status {
+    border-collapse: collapse !important;
+    tr {
+        td,th {
+            font-size: 14px;
+            padding: 12px 8px !important;
+            color: $darkText;
+            font-weight: 400;
+            border-right: solid 1px #d9d9d9 !important;
+            text-align: center;
+            &:first-child {
+              text-align: left;
+             }
+             &.batteryIcons{
+               .anticon{
+                  font-size: 20px;
+               }
+             }
+           }
+       }
+}
+
+.sensorInfoIcon {
+    margin-left: 6px;
+}
+
+.ant-progress-circle.ant-progress-status-success .ant-progress-text {
+    color: $green;
+}
+
+.room {
+    clear: both;
+    font-size: 16px;
+    color: $darkText;
+    /*line-height: 1px;*/
+    font-weight: 400;
+
+    label {
+        font-weight: 400;
+    }
+
+}
+
+.activity {
+    clear: both;
+    font-size: 14px;
+    color: $lightText;
+    font-weight: 500;
+
+    label {
+        @extend .activity;
+    }
+
+}
+.playedVolume{
+    float: right;
+    font-size: 16px;
+    color: #737D96;
+    font-weight: 400;
+}
+
+.sensorCard{
+    .ant-collapse-content{
+        padding:0;
+        .ant-table{
+            font-size: 14px;
+            color: $darkText;
+            font-weight: 400;
+            text-align: center;
+            .batteryLevel {
+                .anticon{
+                    margin-left: 4px;
+                    font-size: 20px;
+                    position: relative;
+                    top: 2px;
+                }
+            }
+
+        }
+        .ant-table-column-title{
+            color: $midText;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .ant-table-small {
+            border-left: 0;
+            border-right: 0;
+            border-radius: 0;
+            .ant-table-bordered .ant-table-content{
+                border-right: 0;
+            }
+        }
+        .dashboard_timeline{
+            padding: 24px 24px 0 24px;
+            .ant-timeline-item-tail{
+                left:0;
+            }
+            .ant-timeline-item-head-custom{
+                top: 3.5px;
+            }
+        }
+    }
+}
+
+.statusContainer {
+    margin-bottom: 24px;
+    position: relative;
+    color: $midText;
+    font-weight: 500;
+    font-size: 15px;
+    vertical-align: middle;
+    .fontHeading{
+        font-weight: 600;
+    }
+}
+
+
+.batteryStatusCol{
+    .statusBattery{
+        margin-right: 6px;
+        font-size: 24px;
+    }
+    .ant-divider-vertical{
+        height: 1.6em;
+    }
+    .signal{
+        .type{
+            font-weight: 600;
+            margin: 0 6px;
+        }
+    }
+}
+.hubNameStatus{
+    color: $darkText;
+    text-align: left;
+    font-size: 18px;
+}
+
+.editVolumeButton{
+    background: $midText;
+    color: white;
+    border-radius: 6px;
+    top: -2px;
+    position: relative;
+    margin-left: 4px;
+}
+
+.volumeIcon{
+    margin-right: 4px;
+    top: -6px;
+    position: relative;
+    font-size: 25px;
+}
+
+.lastSeen{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: break-spaces;
+    color: $lightText;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.collapse-extra {
+    @media (max-width: 374px) {
+        font-size: 12px;
+    }
+}
+
+.recent_activity {
+    padding: 0 16px;
+    width: 100%;
+}
+
+
+.dashboard_bg {
+    background: #F5F6F9;
+    min-height: 100vh;
+    position: absolute;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+
+.mobile_banner {
+
+    color: $white;
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+
+    &.active {
+        background: $green;
+    }
+    &.inactive {
+        background: $rose;
+    }
+
+    label {
+        color: $white;
+        font-size: 16px;
+    }
+}
+
+.small_btn{
+    height: auto;
+    margin: 10px auto 0;
+    width: auto;
+    padding: 10px 25px;
+}
+.reminderPopup{
+    .btn-sm{
+        height: auto;
+        margin: 10px auto 0;
+        width: auto;
+        padding: 5px 15px;
+    }
+    .btn-warning{
+        height: auto;
+        margin: 10px auto 0;
+        width: auto;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #B3BBCE;
+        margin-left: 20px;
+    }
+}
+.custom_modal {
+
+    .modal-header {
+        border-bottom: 0;
+        padding: 25px;
+
+        .close {
+            font-size: 30px;
+        }
+    }
+
+    .modal-body {
+        padding: 25px;
+    }
+
+    .modal-footer {
+        border-top: 0;
+    }
+
+    label {
+        color: $midText;
+        font-weight: 400;
+    }
+
+    .cancel_modal {
+        @extend .small_btn;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: $lightText;
+
+        &:active {
+            background: transparent;
+            color: $lightText;
+            box-shadow: none;
+        }
+    }
+    .form-control {
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        box-shadow:none;
+        &:focus {
+            border: 2px solid $blue;
+            box-shadow:none;
+            transition: none;
+        }
+    }
+
+}
+
+.reminder_desc {
+    color: $midText;
+    font-size: 16px;
+    margin: 4px 0 0 0;
+}
+
+.reminder_day {
+    font-size: 14px;
+    color: $lightText;
+}
+
+.advanced_block {
+    margin-bottom: 24px;
+    .toggle_switch {
+        display: inline-block;
+        float: right;
+        margin-left: 12px;
+        .alert_type {
+            display: block;
+            color: $lightText;
+            font-size: 14px;
+            margin: 5px 0;
+            font-weight: 300;
+        }
+        .ant-switch{
+            margin: inherit;
+        }
+    }
+}
+
+.desc{
+    display: inline-block;
+    color: $lightText;
+    font-size: 14px;
+    margin: 5px 0;
+    font-weight: 300;
+}
+
+.dashboard_alert {
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  .alerts {
+      padding: 10px;
+      margin: 0;
+      color: $white;
+      font-weight: 500;
+      .anticon{
+          font-size: 60px;
+      }
+      .title{
+          font-weight: 700;
+          font-size: 20px;
+      }
+      button{
+          border: 2px solid white;
+          color:$white;
+          margin-top: 6px;
+      }
+      a{
+          color: $white;
+          text-decoration: underline;
+      }
+      .alert_title {
+          span {
+              position: relative;
+              top: 6px;
+              padding-right: 15px;
+          }
+
+          a {
+              line-height: 40px;
+              font-size: 18px;
+              color: $white;
+              text-decoration: none;
+
+              &:hover{
+                  text-decoration: none;
+              }
+          }
+          .alert_title{
+              line-height: 28px;
+              font-size: 22px;
+              font-weight: bold;
+              color: $white;
+              text-decoration: none;
+
+              &:hover{
+                  text-decoration: none;
+              }
+          }
+
+          .alert_content{
+              line-height: 25px;
+              font-size: 17px;
+              color: $white;
+              text-decoration: none;
+
+              &:hover{
+                  text-decoration: none;
+              }
+          }
+      }
+
+      label {
+          margin: 0;
+      }
+  }
+    .urgent_alert {
+        background: $rose;
+    }
+    .normal_alert {
+        background: $green;
+    }
+    .warning_alert {
+        background: $orange;
+    }
+}
+
+textarea {
+    &.form-control {
+    height: auto;
+    font-size: 18px;
+    color: #384954 ;
+    font-weight: 200;
+    margin-bottom: 20px;
+    max-width:100%;
+    }
+}
+/*end dashboard*/
+
+/*Media Queries*/
+
+.noneInMd {
+    @media (max-width: $screen-md) and (min-width: $screen-sm) {
+        display: none;
+    }
+    @media (max-width: $screen-xs) {
+        display: none;
+    }
+}
+
+@media(max-width:767px){
+
+    .dashboard_alert{
+        padding: 0;
+    }
+
+
+    .small_btn {
+        padding: 10px 15px;
+    }
+
+    .zeroPadding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+
+.react-calendar-timeline .rct-items .rct-item.occupancy-kitchen {
+  background-color: #ff9966!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.occupancy-lounge {
+  background-color: #99cc33!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.occupancy-bathroom {
+  background-color: #cc99cc!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.occupancy-bedroom {
+  background-color: #6699cc!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.occupancy-spareroom {
+  background-color: #ffffcc!important;
+  color: black!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.door-closed {
+    background-color: $green!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.door-open {
+    background-color: $orange!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.sensor {
+  background-color: rgba(201, 76, 76, 0.7)!important;
+  z-index: 90!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.anomaly-unresolved {
+  background-color: #ff0000!important;
+}
+
+.react-calendar-timeline .rct-items .rct-item.anomaly-resolved {
+  background-color: #ffa500!important;
+}
+
+.panel-heading .date .anomaly.resolved, .panel-heading .duration .anomaly.resolved {
+  color: $green;
+}
+
+.panel-heading .date .anomaly.unresolved, .panel-heading .duration .anomaly.unresolved  {
+  color: $rose;
+}
+
+.currentRoom {
+  color: black;
+  padding: 0;
+  margin: 24px 0;
+  font-size: 13px;
+}
+
+.headerContainer {
+    width: 100%;
+    margin: 15px 0 10px 25px;
+    display: inline-block;
+}
+.ant-breadcrumb {
+    float: left;
+}
+
+.tab-pane .delete_icon {
+    color: #B3BBCE;
+    cursor: pointer;
+  }
+
+  .ant-dropdown-menu-item>a:hover{
+      text-decoration: none;
+      color: red;
+      background: #fff;
+  }
+  .editUser{
+      margin-left: 11px;
+  }
+  .drpmenu:hover{
+      color:red;
+      background: #fff;
+  }
+
+  .ant-dropdown-link{
+      cursor: pointer;
+  }
+  .footer_btn {
+    text-align: right !important;
+}
+
+.copy_right {
+    font-size: 14px ;
+    font-style: italic ;
+}
+.about_img {
+  text-align: center;
+
+    img {
+        width: 100px;
+    }
+}
+.no_hub_img {
+    text-align: center;
+    height: 300px;
+    width: 100px;
+    margin-left: 50px;
+
+}
+.no_beacon_img {
+    text-align: center;
+
+    img {
+        width: 100px;
+        margin-left: 35px;
+    }
+}
+.versions{
+    text-align: center;
+    ul {
+        padding:0;
+        margin: 0;
+        font-size: 15px;
+
+        li{
+            list-style: none;
+            margin-top: 15px;
+            line-height: 0.6;
+        }
+
+    }
+}
+
+.deleteButton{
+    float:left;
+}
+.reminder_row_click{
+    cursor: pointer;
+}
+
+.add_reminder_button{
+    padding-left: 34px;
+}
+
+@media only screen and (min-width:0px) and (max-width:768px){
+
+    .panel-heading .date .anomaly.resolved{
+        position: relative;
+        bottom: 30px;
+
+    }
+    .panel-group .panel-heading .date{
+        margin-top: 20px;
+    }
+    .panel-heading .date .anomaly.unresolved{
+        position: relative;
+        bottom: 30px;
+    }
+    .ant-breadcrumb {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width:1024px) and (max-width:1366px){
+    .panel-heading .date .anomaly.resolved{
+        position: relative;
+        bottom: 35px;
+    }
+    .panel-heading .date .anomaly.unresolved{
+        position: relative;
+        bottom: 35px;
+    }
+    .ant-breadcrumb {
+        font-size: 14px;
+    }
+    .add_reminder_button{
+        margin-left: 480px;
+    }
+}
+/** React Phone Number input*/
+.react-phone-number-input {
+    &__input {
+        margin-bottom: 0;
+    }
+
+    &__icon {
+        display: flex;
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.messageLabel{
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.messageDescription{
+    color: $lightText;
+}
+.disableStatusTitle{
+    font-size: 20px;
+    .disabled{
+        color: $rose;
+    }
+    .enabled{
+        color: $green
+    }
+}
+
+.ant-table-small > .ant-table-content > .ant-table-body {
+    margin: 0;
+}
+
+.failStatusIcon{
+    margin-bottom: 16px;
+    color: $rose;
+    font-size: 108px;
+}
+
+.successStatusIcon{
+    margin-bottom: 16px;
+    color: $green;
+    font-size: 108px;
+}
+
+.last-margin-bottom-form{
+    .ant-form-item:nth-last-child(2){
+        margin-bottom: 12px;
+    }
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.large-margin-bottom{
+    margin-bottom: 16px;
+}
+
+.header-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-placeholder{
+    display: flex;
+    flex-direction: row;
+    margin-left: 42%;
+}

@@ -1,0 +1,108 @@
+import { Component } from 'react'
+import { Col, Modal, Row } from 'antd'
+import HubIcon from '../../../../../images/hub_icon.svg'
+import BeaconIcon from '../../../../../images/beacon_icon.svg'
+import PropTypes from 'prop-types'
+import AddBeaconOrgModal from '../Beacon/AddBeaconOrgModal'
+import AddHubOrgModal from '../Hub/AddHubOrgModal'
+import RadarIcon from '@/images/radar_sensor_icon.png'
+import AddRadarOrgModal from '../Radar/AddRadarOrgModal'
+
+class AddExternalLeafModal extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state={
+            hubModal: false,
+            beaconModal: false,
+            radarModal: false,
+        }
+    }
+
+
+    handleNewHub = (state) => {
+        this.setState({hubModal:state})
+    }
+
+    handleNewBeacon = (state) => {
+        this.setState({beaconModal:state})
+    }
+
+    handleNewRadar = (state) => {
+        this.setState({radarModal:state})
+    }
+
+    render() {
+        const {onClose, open, selectedGroup} = this.props
+        const {beaconModal, hubModal, radarModal} = this.state
+        return <Modal
+            destroyOnClose
+            title='What are you claiming?'
+            open={open}
+            onCancel={onClose}
+            width={900}
+            footer={null}
+        >
+            <Row  gutter={16} justify="center">
+                <Col span={8}>
+                    <Row justify="center">
+                        <div className="roundLogoContainer">
+                            <HubIcon className="claimImg" />
+                        </div>
+                    </Row>
+                    <Row justify="center">
+                        <AddHubOrgModal
+                            {...this.props}
+                            groupId={selectedGroup?.organization_device_group_id}
+                            open={hubModal}
+                            onClose={()=>this.handleNewHub(false)}
+                        />
+                    </Row>
+                </Col>
+                <Col span={8}>
+                    <Row justify="center">
+                        <div className="roundLogoContainer">
+                            <BeaconIcon className="claimImg" />
+                        </div>
+                    </Row>
+                    <Row justify="center">
+                        <AddBeaconOrgModal
+                            {...this.props}
+                            groupId={selectedGroup?.organization_device_group_id}
+                            open={beaconModal}
+                            onClose={()=>this.handleNewBeacon(false)}
+                        />
+                    </Row>
+                </Col>
+                <Col span={8}>
+                    <Row justify="center">
+                        <div className="roundLogoContainer" onClick={this.handleNewRadar} >
+                            <img src={RadarIcon} className="claimRadarImg" alt="RadarLogo"/>
+                        </div>
+                    </Row>
+                    <Row justify="center">
+                        <AddRadarOrgModal
+                            {...this.props}
+                            groupId={selectedGroup?.organization_device_group_id}
+                            open={radarModal}
+                            onClose={()=>this.handleNewRadar(false)}
+                        />
+                    </Row>
+                </Col>
+            </Row>
+
+
+        </Modal>
+    }
+}
+
+AddExternalLeafModal.propTypes ={
+    open: PropTypes.bool,
+    onClose: PropTypes.func,
+    currentOrg: PropTypes.object,
+    type: PropTypes.oneOf(['user','device']),
+    selectedGroup: PropTypes.object,
+}
+
+export default AddExternalLeafModal
+

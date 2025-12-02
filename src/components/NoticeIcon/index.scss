@@ -1,0 +1,34 @@
+.noticeIconPopover {
+  position: relative;
+  width: 336px;
+  z-index: 999;
+}
+
+.noticeButton {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.noticeIconIcon {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.noticeIconBadge {
+  font-size: 16px;
+}
+
+.noticeIconTabs {
+  :global {
+    .ant-tabs-nav-list {
+      margin: auto;
+    }
+
+    .ant-tabs-nav-scroll {
+      text-align: center;
+    }
+    .ant-tabs-bar {
+      margin-bottom: 0;
+    }
+  }
+}

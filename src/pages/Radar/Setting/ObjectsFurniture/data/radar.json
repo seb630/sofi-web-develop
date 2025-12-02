@@ -1,0 +1,22 @@
+{
+  "x": [
+    0
+  ],
+  "y": [
+    0
+  ],
+  "z": [
+    2.2
+  ],
+  "type": "scatter3d",
+  "name": "Radar",
+  "texttemplate": "Radar: (%{x}, %{y}, %{z})",
+  "mode": "markers",
+  "hovertemplate": "Radar<br>x: %{x}<br>y: %{y}<br>z: %{z}<extra></extra>",
+  "marker": {
+    "color": [
+      "#000000"
+    ]
+  },
+  "showlegend": false
+}

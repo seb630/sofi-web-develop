@@ -1,0 +1,21 @@
+[
+  {
+    "id": 3,
+    "blockPortalAccess": true,
+    "notificationDateTimeStart": "2021-08-12T11:15:30Z",
+    "notificationDateTimeEnd": "2021-08-13T00:00:00Z",
+    "outageDateTimeStart": "2021-08-13T04:50:00Z",
+    "outageDateTimeEnd": "2021-08-13T05:50:00Z",
+    "notificationTitle": "This is notification strip title",
+    "notificationBody": "There will be a update for Hello World Test from {start} to {end}",
+    "blockPortalAccessPageTitle": "This is outage window title",
+    "blockPortalAccessPageBody": "We are currently on a update for Hello World Test since {start} until {end}",
+    "outageDetailPageTitle": "Sofihub Outage Information",
+    "outageDetailPageIntroduction": "We are currently on a update for Hello World Test since {start} until {end}",
+    "optionalOutageDetailPageWhatRegionWillBeImpacted": "Australia, New Zealand, North America",
+    "optionalOutageDetailPageReasonForOutage": "Database upgrades",
+    "optionalOutageDetailPageWhatFunctionsWillBeImpacted": "<Row><Col>something will unavailable:<ul><li>point one</li><li>point two</li><li>point three</li></ul>end words</Col></Row>",
+    "optionalOutageDetailPageWillIBeImpacted": "Some one will be affected",
+    "outageDetailPageContact": "support@sofihub.com"
+  }
+]

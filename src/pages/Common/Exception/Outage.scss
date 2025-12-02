@@ -1,0 +1,24 @@
+@import '../../../scss/colours';
+
+
+.outageContainer {
+  background: $lightborder;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.lighterWeight {
+  font-weight: lighter !important;
+}
+
+.outageCard {
+  margin: 24px;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.sofiBlue {
+  color: $blue !important;
+}

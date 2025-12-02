@@ -1,0 +1,47 @@
+@import './src/scss/colours';
+
+.raderConfigImg{
+  height: 400px;
+  margin-bottom: 24px;
+}
+
+.legend{
+  line-height: 2;
+  font-weight: bold;
+  .square{
+    float: left;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid;
+    margin: 5px 12px 12px 5px;
+  }
+
+  .greenBg{
+    background-color: $green;
+    border-color: $green;
+  }
+  .blueBg{
+    background-color: $sofihubBlue;
+    border-color: $sofihubBlue;
+  }
+  .whiteBg{
+    background-color: white;
+    border: 3px solid black;
+  }
+}
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.radarSetting{
+  .icon{
+    font-size: 20px;
+    margin-right: 4px;
+    &-success{
+      color: $green;
+    }
+  }
+}

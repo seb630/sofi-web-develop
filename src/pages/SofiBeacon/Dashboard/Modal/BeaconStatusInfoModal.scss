@@ -1,0 +1,68 @@
+@import "../../../../scss/colours.scss";
+
+.modal-beaconStatus {
+    $self: &;
+
+    &--warning {
+        #{ $self }-title {
+            color: $orange
+        }
+
+        .button {
+            &-gotit {
+                background: $orange;
+                border-color: $orange;
+                color: $white;
+            }
+        }
+    }
+
+    &--offline {
+        #{ $self }-title {
+            color: $rose;
+        }
+
+        .button {
+            &-gotit {
+                background: $rose;
+                border-color: $rose;
+                color: $white;
+            }
+        }
+    }
+
+    &-title {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    &-message {
+        padding: 0px 40px;
+        text-align: center;
+    }
+
+    &-icon {
+        font-size: 64px;
+        margin-bottom: 10px;
+    }
+
+    .ant-modal {
+        &-close-x {
+            display: none;
+        }
+
+        &-footer {
+            border-top: 0px;
+        }
+
+        &-body {
+            padding: 12px;
+        }
+    }
+
+}

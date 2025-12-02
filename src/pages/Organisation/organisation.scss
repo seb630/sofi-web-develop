@@ -1,0 +1,36 @@
+@import "../../scss/theme";
+
+.OrgHeader{
+  background: white;
+  &-Title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 20px;
+  }
+  &-Icon{
+    font-size: 50px;
+    vertical-align: middle;
+  }
+  .ant-select{
+    margin-left: 20px;
+    width: 250px;
+  }
+  .mobileOrgSelection{
+    line-height: 2;
+    .ant-select{
+      width: calc(100% - 20px);
+    }
+    span{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: $screen-md) {
+    padding: 0 20px;
+    background: $sofihubBlue;
+    color: white;
+  }
+}
+
+.OrgBody{
+  min-height: calc(100vh - 160px);
+}

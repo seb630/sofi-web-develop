@@ -1,0 +1,60 @@
+<svg id="Sofihub" xmlns="http://www.w3.org/2000/svg" width="1641" height="2145" viewBox="0 0 1641 2145">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e03b50;
+      }
+
+      .cls-2, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #9a9a9a;
+      }
+
+      .cls-4 {
+        fill: #d9d9d9;
+      }
+
+      .cls-5 {
+        fill: #888;
+      }
+
+      .cls-6 {
+        fill: #d1d1d1;
+      }
+
+      .cls-7 {
+        font-size: 214.462px;
+        text-anchor: middle;
+        font-family: Roboto;
+        font-weight: 300;
+      }
+
+      .cls-8 {
+        fill: #464646;
+      }
+
+      .cls-10, .cls-8 {
+        fill-rule: evenodd;
+      }
+
+      .cls-10, .cls-9 {
+        fill: #c8c8c8;
+      }
+    </style>
+  </defs>
+  <rect id="Rounded_Rectangle_4" data-name="Rounded Rectangle 4" class="cls-1" x="883" y="39" width="758" height="598" rx="100" ry="100"/>
+  <rect class="cls-1" x="883" y="537" width="100" height="100"/>
+  <rect class="cls-2" x="0.156" y="39.406" width="812.406" height="1614.934"/>
+  <circle class="cls-3" cx="408.844" cy="1324.92" r="116.406"/>
+  <rect id="Rounded_Rectangle_2" data-name="Rounded Rectangle 2" class="cls-4" x="381.594" y="331.688" width="54.5" height="683.622" rx="5.5" ry="5.5"/>
+  <rect class="cls-3" x="0.156" y="1654.34" width="812.406" height="490.44"/>
+  <rect id="Rounded_Rectangle_3" data-name="Rounded Rectangle 3" class="cls-5" x="143.812" y="1703.91" width="535" height="79.25" rx="5" ry="5"/>
+  <rect class="cls-6" x="257.75" y="-0.219" width="307.125" height="39.625"/>
+  <text id="_" data-name="?  !" class="cls-7" transform="translate(1247.533 474.071) scale(1.725)"><tspan x="0">?  !</tspan></text>
+  <path id="Rounded_Rectangle_6" data-name="Rounded Rectangle 6" class="cls-8" d="M974.115,1125.7h18.672c136.483,0,268.813,90.85,291.013,233.14l53.76,344.43c34.68,222.22-117.73,441.51-339.842,441.51H967.742c-222.1,0-374.218-219.28-339.218-441.51l54.246-344.43C705.179,1216.55,837.632,1125.7,974.115,1125.7Z"/>
+  <circle class="cls-9" cx="984.374" cy="1830.33" r="151.936"/>
+  <path class="cls-10" d="M1151.74,1205.15c44.07,25.97,72.9,57.85,64.37,72.12-9.07,19.98-50.58-17.95-90.78-40.47-41.96-14.98-78.98-35.73-68.82-53.11C1065.12,1169.6,1107.64,1179.35,1151.74,1205.15Z"/>
+</svg>

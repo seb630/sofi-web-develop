@@ -1,0 +1,56 @@
+@import "../../scss/colours";
+
+.bodyTitle {
+  height: 80px;
+  .title{
+    color: black;
+    font-size: 22px;
+  }
+  .anticon{
+    font-size: 42px;
+    padding-right: 6px;
+  }
+}
+.good {
+  color: $green;
+  a{
+    color: $green;
+    text-decoration: underline;
+  }
+}
+
+.exclamation {
+  color: $rose;
+  a{
+    color: $rose;
+    text-decoration: underline;
+  }
+}
+
+.glanceContainer {
+  padding: 30px;
+  text-align: center;
+  height: 100%;
+}
+
+.glanceContainer.urgent {
+  background: $pink;
+}
+
+.glanceContainer.normal {
+  background: $lightGreen;
+  color: $green;
+}
+
+.bodySection{
+  max-width: 380px;
+  text-align: left;
+  font-size: 18px;
+  .anticon{
+    padding-right: 6px;
+  }
+}
+
+.noIconMargin {
+  margin-left: 28px;
+}

@@ -1,0 +1,20 @@
+.inner-scroll-example {
+  height: 540px;
+  font-weight: 500;
+  overflow-y: scroll;
+  white-space: normal;
+  h1{
+    font-size: 36px;
+    font-weight: 600;
+  }
+  h2 {
+    font-weight: 600;
+  }
+  h3{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .ant-typography{
+    margin-top: 0 !important;
+  }
+}

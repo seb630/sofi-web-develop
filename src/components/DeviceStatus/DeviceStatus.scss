@@ -1,0 +1,60 @@
+@import "../../scss/colours.scss";
+
+/** device status */
+.deviceStatus {
+    padding: 2px 6px;
+    border-radius: 14px;
+    margin-left: 4px;
+    position: relative;
+    top: -2px;
+    font-size: 10px;
+    color: $white;
+
+    &-online {
+        background: $green;
+    }
+
+    &-offline {
+        background: $rose;
+    }
+
+    &-warning {
+        background: $orange;
+    }
+
+    &-unknown {
+        background: $rose;
+    }
+
+    &-open {
+        background: $orange;
+    }
+
+    &-closed {
+        background: $green;
+    }
+
+    &-invited {
+        background: $blue;
+    }
+
+    &-invited {
+        background: $blue;
+    }
+    &-bigger{
+        text-align: center;
+        font-size: 14px;
+    }
+}
+
+.locationStatus {
+    color: $white;
+
+    &-online {
+        background: $green;
+    }
+
+    &-offline {
+        background: $midText;
+    }
+}

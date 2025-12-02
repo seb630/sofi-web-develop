@@ -1,0 +1,15 @@
+@import "../../scss/colours";
+
+.eventRuleTable{
+  .daysOn{
+    //color: $midText;
+  }
+  .daysOff{
+    color:$lightgrey;
+  }
+}
+
+.question{
+  margin-left: 8px;
+  color: $sofihubBlue;
+}

@@ -1,0 +1,123 @@
+@import '../../../scss/theme';
+@import "../../../scss/colours.scss";
+
+.productImg {
+    margin-bottom: 30px;
+    width: 200px;
+    height: 200px;
+    @media (max-width: $screen-xs) {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+.biggerImg {
+    width: 250px;
+    height: 250px;
+}
+
+.geofenceImg {
+    float:left;
+    height:100%;
+    object-fit:cover;
+    width: 100%;
+}
+
+.wizardContent {
+    text-align: center;
+    min-height: 256px;
+    .firstnameInput{
+        @media (min-width: $screen-md) {
+            width: 199px;
+        }
+    }
+    .displayNameInput{
+        @media (min-width: $screen-md) {
+            width: 414px;
+        }
+    }
+}
+
+.finishCheckCircle{
+    font-size: 80px;
+    color: $green;
+    margin: 12px 0 24px 0;
+}
+
+.inviteList{
+    text-align: left;
+}
+/** invite status */
+
+.inviteStatus {
+    padding: 2px 12px;
+    border-radius: 14px;
+    margin-left: 4px;
+    position: relative;
+    font-size: 16px;
+    color: $white;
+
+    &-carer {
+        background: $green;
+    }
+
+    &-invited {
+        background: $blue;
+    }
+}
+
+.fallImg {
+    margin: 30px 0;
+    width: 150px;
+    height: 150px;
+    @media (max-width: $screen-xs) {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 20px;
+    }
+}
+
+.fallStepIcon {
+    color: $blue;
+    position: relative;
+    font-size: 75px;
+    top: -140px;
+    right: 60px;
+    @media (max-width: $screen-xs) {
+        font-size: 60px;
+        top: -80px;
+        right: 40px;
+    }
+}
+
+.welcomeSteps{
+    @media (min-width: 900px) {
+        .ant-steps-item{
+            max-width: 100px;
+        }
+    }
+    .ant-steps-horizontal{
+        &-icon{
+            margin-left: 40px !important;
+        }
+    }
+
+}
+
+.ant-steps-vertical{
+    max-height: 140px;
+    overflow-y: scroll;
+}
+
+.noPaddingBody{
+    .ant-modal-body{
+        padding: 0;
+    }
+    p{
+        margin: 0 24px 24px 24px;
+    }
+    .ant-btn{
+        margin: 24px;
+    }
+}

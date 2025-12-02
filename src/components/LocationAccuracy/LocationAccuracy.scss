@@ -1,0 +1,24 @@
+@import "../../scss/colours.scss";
+
+/** device status */
+.locationAccuracy {
+    padding: 2px 6px;
+    border-radius: 14px;
+    margin-left: 4px;
+    position: relative;
+    top: -2px;
+    font-size: 10px;
+    color: $white;
+
+    &-good {
+        background: $green;
+    }
+
+    &-inaccurate {
+        background: $rose;
+    }
+
+    &-average {
+        background: $orange;
+    }
+}

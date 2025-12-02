@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="894" height="2360" viewBox="0 0 894 2360">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: #d1d1d1;
+      }
+
+      .cls-1 {
+        stroke: #44af86;
+        stroke-linejoin: round;
+        stroke-width: 20px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #9a9a9a;
+      }
+
+      .cls-5 {
+        fill: #888;
+      }
+
+      .cls-6 {
+        fill: #44af86;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M40.156,146.406H852.563V1761.34H40.156V146.406Zm0,1614.934H852.563v490.44H40.156V1761.34ZM297.75,106.781H604.875v39.625H297.75V106.781Z"/>
+  <rect id="Rectangle_4_copy" data-name="Rectangle 4 copy" class="cls-2" x="40.156" y="146.406" width="812.406" height="1614.934"/>
+  <rect id="Rectangle_5_copy" data-name="Rectangle 5 copy" class="cls-3" x="40.156" y="1761.34" width="812.406" height="490.44"/>
+  <rect id="Rectangle_6_copy" data-name="Rectangle 6 copy" class="cls-4" x="297.75" y="106.781" width="307.125" height="39.625"/>
+  <circle class="cls-3" cx="448.844" cy="1431.92" r="116.406"/>
+  <rect id="Rounded_Rectangle_3" data-name="Rounded Rectangle 3" class="cls-5" x="183.812" y="1810.91" width="535" height="79.25" rx="5" ry="5"/>
+  <rect id="Rounded_Rectangle_2" data-name="Rounded Rectangle 2" class="cls-6" x="421.594" y="438.688" width="54.5" height="683.622" rx="5.5" ry="5.5"/>
+</svg>

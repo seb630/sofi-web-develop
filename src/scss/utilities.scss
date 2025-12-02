@@ -1,0 +1,156 @@
+.fullscreen {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content {
+    &-start {
+        justify-content: flex-start
+    }
+
+    &-end {
+        justify-content: flex-end
+    }
+
+    &-center {
+        justify-content: center;
+    }
+
+    &-between {
+        justify-content: space-between;
+    }
+}
+
+.align-items {
+    &-center {
+        align-items: center;
+    }
+}
+
+.vertical-bottom{
+    vertical-align: bottom;
+}
+
+.text {
+    &-left {
+        text-align: left;
+    }
+
+    &-right {
+        text-align: right;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-ellipsis {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &-green {
+        color: $green;
+    }
+}
+
+.button {
+    &-green {
+        background: $green;
+        color: $white;
+        border-color: $green;
+        &:hover, &:focus, &:active {
+            color: $green;
+            background: $white;
+            border-color: $green;
+        }
+    }
+}
+
+.list {
+    &-unstyled {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+.customModal {
+    &--loading {
+        .ant-modal-close-x {
+            display: none;
+        }
+    }
+}
+
+.scrollable {
+    &-x {
+        overflow-x: scroll;
+    }
+
+    &-y {
+        overflow-y: scroll;
+    }
+}
+
+.break-space{
+    white-space: normal;
+}
+
+// Floats
+// -------------------------
+
+.clearfix {
+    overflow: auto;
+}
+.pull-right {
+    float: right !important;
+}
+.pull-left {
+    float: left !important;
+}
+
+
+// Toggling content
+// -------------------------
+
+// Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+.invisible {
+    visibility: hidden;
+}
+
+// Hide from screenreaders and browsers
+//
+// Credit: HTML5 Boilerplate
+
+.hidden {
+    display: none !important;
+}
+
+
+// For Affix plugin
+// -------------------------
+
+.affix {
+    position: fixed;
+}
+
+.size14{
+    font-size: 14px;
+}
+
+.overflowHidden{
+    overflow: hidden;
+}

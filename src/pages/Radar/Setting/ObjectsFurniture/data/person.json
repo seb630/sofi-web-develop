@@ -1,0 +1,31 @@
+{
+  "x": [
+    "0.87"
+  ],
+  "y": [
+    "2.34"
+  ],
+  "z": [
+    "1.41"
+  ],
+  "customdata": [
+    " Example"
+  ],
+  "text": [
+    "07:14:56"
+  ],
+  "type": "scatter3d",
+  "name": "Person",
+  "texttemplate": "Person: (%{x}, %{y}, %{z})",
+  "mode": "markers",
+  "hovertemplate": "Person%{customdata}<br>x: %{x}<br>y: %{y}<br>z: %{z}<br><b>%{text}</b><extra></extra>",
+  "marker": {
+    "color": [
+      "#737D96"
+    ],
+    "symbol": [
+      "circle"
+    ]
+  },
+  "showlegend": false
+}
