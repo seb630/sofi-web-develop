@@ -2,14 +2,15 @@ import { Component, Fragment } from 'react'
 import { Card, Col, Row, Tooltip } from 'antd'
 import './index.scss'
 import PropTypes from 'prop-types'
-import HubIcon from '../../images/hub_icon.svg'
-import BeaconIcon from '../../images/beacon_icon.png'
-import LifeIcon from '../../images/beacon_teq_life.png'
-import RadarIcon from '../../images/radar_sensor_icon.png'
-import WatchIcon from '../../images/beacon_watch_icon.png'
-import SitaIcon from '../../images/sita_icon.svg'
+import HubIcon from '@/images/hub_icon.svg'
+import BeaconIcon from '@/images/beacon_icon.svg'
+import LifeIcon from '@/images/beacon_teq_life.png'
+import RadarIcon from '@/images/radar_sensor_icon.png'
+import WatchIcon from '@/images/beacon_watch_icon.png'
+import HaloIcon from '@/images/beacon_teq_halo.png'
+import SitaIcon from '@/images/sita_icon.svg'
 import { actions } from 'mirrorx'
-import { isBeacon, isHub, isOnline, isRadar, isSita, isLife, isWatch } from '@/utility/Common'
+import { isBeacon, isHub, isOnline, isRadar, isSita, isLife, isWatch, isHalo } from '@/utility/Common'
 
 export default class DeviceCard extends Component {
 
@@ -41,7 +42,8 @@ export default class DeviceCard extends Component {
                             : isBeacon(device) ?
                                 isSita(device) ? <SitaIcon className={`beacon ${iconClassName}}`} /> :
                                     isLife(device) ? <img src={LifeIcon} className={`life ${iconClassName}}`} alt='life' width='36' style={{ marginBottom: '8px' }} /> : 
-                                        isWatch(device) ? <img src={WatchIcon} className={`life ${iconClassName}`} alt='watch' width='36' style={{marginBottom: '8px'}}/> : <img src={BeaconIcon} className={`beacon ${iconClassName}`} alt='beacon' width='36' style={{marginBottom: '8px'}} /> :
+                                        isWatch(device) ? <img src={WatchIcon} className={`life ${iconClassName}`} alt='watch' width='36' style={{marginBottom: '8px'}}/> : 
+                                            isHalo(device) ? <img src={HaloIcon} className={`halo ${iconClassName}`} alt='halo' width='36' style={{marginBottom: '8px'}}/> : <BeaconIcon className={`beacon ${iconClassName}}`} /> :
                                 <img src={RadarIcon} className='radar' alt="radar" width='40' height='40' />
                         }
                     </Col>

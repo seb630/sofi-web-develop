@@ -1,9 +1,9 @@
 import { createRef, forwardRef, Fragment, useImperativeHandle, useState } from 'react'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import { Button, Col, message, Row, Slider } from 'antd'
-import { sliderFormatter, isLife, isWatch } from '@/utility/Common'
+import { sliderFormatter, isLife, isWatch, isHalo } from '@/utility/Common'
 import { globalConstants } from '@/_constants'
-import BeaconIcon from '../../../../images/beacon_icon.svg'
+import BeaconIcon from '@/images/beacon_icon.svg'
 import { actions } from 'mirrorx'
 
 let Render4GFall = (props, ref) => {
@@ -53,7 +53,8 @@ let Render4GFall = (props, ref) => {
     }
 
     const name =  isLife(props.selectedBeacon) ? globalConstants.LIFE_SOFIHUB : 
-        isWatch(props.selectedBeacon) ? globalConstants.BEACON_WATCH : globalConstants.BEACON_SOFIHUB
+        isWatch(props.selectedBeacon) ? globalConstants.BEACON_WATCH : 
+            isHalo(props.selectedBeacon) ? 'Halo' : globalConstants.BEACON_SOFIHUB
 
     return <div className="wizardContent">
         <p>Your {name} offers fall detection. If a fall is detected, emergency contacts can be notified.</p>

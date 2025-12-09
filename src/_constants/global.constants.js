@@ -41,6 +41,7 @@ export const globalConstants = {
     SITA_BEACON_MODEL: 'CT21B',
     EV04_BEACON_MODEL: 'EV04',
     EV06_BEACON_MODEL: 'EV06',
+    EV12_BEACON_MODEL: 'EV12',
     TIMELINE_THRESHOLD_MIN: 10, //10 Seconds
     TIMELINE_SIZE: 500,
     GENERAL_AUTO_REFRESH_TIME: 30000, // Milliseconds

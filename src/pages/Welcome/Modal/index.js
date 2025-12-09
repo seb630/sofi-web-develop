@@ -1,10 +1,11 @@
 import { Card, Col, Modal, Row, Typography } from 'antd'
-import { isBeacon, isHub, isSita, isLife, isWatch } from '@/utility/Common'
+import { isBeacon, isHub, isSita, isLife, isWatch, isHalo } from '@/utility/Common'
 import HubIcon from '@/images/hub_outline_green_icon.svg'
 import SitaIcon from '@/images/sita_icon.svg'
 import BeaconIcon from '@/images/beacon_icon.svg'
 import LifeIcon from '@/images/beacon_teq_life.png'
 import WatchIcon from '@/images/beacon_watch_icon.png'
+import HaloIcon from '@/images/beacon_teq_halo.png'
 import RadarIcon from '@/images/radar_sensor_icon.png'
 import { Fragment } from 'react'
 import { getOobeStorage, storeJSONData } from '@/utility/Storage'
@@ -73,7 +74,8 @@ const OobeModal = (props) => {
                                 isSita(selectedDevice) ? <SitaIcon className='beacon' /> :
                                     isLife(selectedDevice) ? <img src={LifeIcon} style={{ width: '65px' }} /> :
                                         isWatch(selectedDevice) ? <img src={WatchIcon} style={{ width: '65px'}} /> :
-                                            <BeaconIcon className='beacon' /> :
+                                            isHalo(selectedDevice) ? <img src={HaloIcon} style={{ width: '65px'}} /> :
+                                                <BeaconIcon className='beacon' /> :
                                 <img src={RadarIcon} className='radar' alt="radar" width='60' height='60' />
                         }
                     </Col>
@@ -85,7 +87,8 @@ const OobeModal = (props) => {
                                         isHub(selectedDevice) ? globalConstants.HUB_SOFIHUB :
                                             isBeacon(selectedDevice) ?
                                                 isLife(selectedDevice) ? globalConstants.LIFE_SOFIHUB :
-                                                    isWatch(selectedDevice) ? globalConstants.BEACON_WATCH : globalConstants.BEACON_SOFIHUB :
+                                                    isWatch(selectedDevice) ? globalConstants.BEACON_WATCH : 
+                                                        isHalo(selectedDevice) ? 'Halo' : globalConstants.BEACON_SOFIHUB :
                                                 globalConstants.RADAR_HOBA
                                     }!
                                 </Paragraph>

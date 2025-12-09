@@ -21,8 +21,9 @@ import ChangeCard from '@/pages/SofiBeacon/Setting/Overview/ChangeCard'
 import BeaconIcon from '@/images/beacon_icon.svg'
 import LifeIcon from '@/images/beacon_teq_life.png'
 import WatchIcon from '@/images/beacon_watch_icon.png'
+import HaloIcon from '@/images/beacon_teq_halo.png'
 import CallSettingCard from '@/pages/SofiBeacon/Setting/CallSettings/CallSettingCard'
-import { checkBeaconFunction, isLife, isWatch } from '@/utility/Common'
+import { checkBeaconFunction, isLife, isWatch, isHalo } from '@/utility/Common'
 
 const mapStateToProps = state => ({
     selectedBeacon: state.sofiBeacon.selectedBeacon,
@@ -68,7 +69,9 @@ class SofiBeaconSetting extends Component {
                     {
                         isLife(selectedBeacon) ? 
                             <img className='beacon' alt="logo" style={{ fontSize: 180, marginBottom: 24, width: '1em' }} src={LifeIcon} /> : 
-                            isWatch(selectedBeacon) ? <img src={WatchIcon} alt='logo' className='beacon' style={{fontSize: 180, marginBottom: 24, width: '1em'}}/>: <BeaconIcon className='beacon' alt="logo" style={{ fontSize: 180, marginBottom: 24 }} />
+                            isWatch(selectedBeacon) ? <img src={WatchIcon} alt='logo' className='beacon' style={{fontSize: 180, marginBottom: 24, width: '1em'}}/>: 
+                                isHalo(selectedBeacon) ? <img src={HaloIcon} alt='logo' className='beacon' style={{fontSize: 180, marginBottom: 24, width: '1em'}}/> : 
+                                    <BeaconIcon className='beacon' alt="logo" style={{ fontSize: 180, marginBottom: 24 }} />
                     }
                 </Row>
                 <BeaconOverview />

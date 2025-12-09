@@ -1,8 +1,9 @@
 import { Button, Card, Col, Row } from 'antd'
-import { isBeacon, isHub, isSita } from '@/utility/Common'
+import { isBeacon, isHub, isSita, isHalo } from '@/utility/Common'
 import HubIcon from '@/images/hub_icon.svg'
 import SitaIcon from '@/images/sita_icon.svg'
 import BeaconIcon from '@/images/beacon_icon.svg'
+import HaloIcon from '@/images/beacon_teq_halo.png'
 import RadarIcon from '@/images/radar_sensor_icon.png'
 import moment from 'moment'
 import { actions } from 'mirrorx'
@@ -65,7 +66,9 @@ const SubscriptionDeviceCard = (props) => {
                 <Col className="deviceIconCol" flex='50px'>
                     {isHub(device) ?
                         <HubIcon className='hub' style={{height: 70, width:30}}/>
-                        : isBeacon(device) ? isSita(device)? <SitaIcon className={`beacon ${iconClassName}}`}/>: <BeaconIcon className={`beacon ${iconClassName}}`}/> :
+                        : isBeacon(device) ? isSita(device)? <SitaIcon className={`beacon ${iconClassName}}`}/>: 
+                            isHalo(device) ? <img src={HaloIcon} className={`halo ${iconClassName}`} alt='halo' width='40' height='40' /> : 
+                                <BeaconIcon className={`beacon ${iconClassName}}`}/> :
                             <img src={RadarIcon} className='radar' alt="radar" width='40' height='40' />
                     }
                 </Col>

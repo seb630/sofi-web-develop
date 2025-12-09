@@ -6,7 +6,8 @@ import { AppstoreOutlined, ZoomOutOutlined } from '@ant-design/icons'
 import { Divider, Layout, List, Menu } from 'antd'
 import BeaconIcon from '../../../../images/beacon_icon.svg'
 import SitaIcon from '@/images/sita_icon.svg'
-import { checkBeaconStatus, isOnline, isSita } from '@/utility/Common'
+import HaloIcon from '@/images/beacon_teq_halo.png'
+import { checkBeaconStatus, isOnline, isSita, isHalo } from '@/utility/Common'
 import { globalConstants } from '@/_constants'
 
 const { Sider } = Layout
@@ -70,7 +71,8 @@ class SideBar extends Component {
                     renderItem={item => (
                         <List.Item className={checkBeaconStatus(item)}>
                             <List.Item.Meta
-                                avatar={isSita(item)?<SitaIcon />:<BeaconIcon />}
+                                avatar={isSita(item)?<SitaIcon />: 
+                                    isHalo(item) ? <img src={HaloIcon} alt='halo' width='36' height='36' /> : <BeaconIcon />}
                                 title={<a
                                     onMouseOver={()=>hoverBeacon(item)}
                                     onMouseLeave={()=>hoverBeacon(null)}

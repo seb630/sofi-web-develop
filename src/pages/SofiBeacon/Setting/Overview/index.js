@@ -5,7 +5,7 @@ import { EditOutlined, SaveOutlined } from '@ant-design/icons'
 import { globalConstants } from '@/_constants'
 import { titleCase } from 'change-case'
 import { formatPhoneNumber } from 'react-phone-number-input'
-import { isLife, isWatch } from '@/utility/Common'
+import { isLife, isWatch, isHalo } from '@/utility/Common'
 
 const mapStateToProps = state => ({
     selectedBeacon: state.sofiBeacon.selectedBeacon,
@@ -58,7 +58,8 @@ class RadarOverview extends Component {
         const { selectedBeacon } = this.props
         const deviceType = isLife(selectedBeacon) ? 
             globalConstants.LIFE_SOFIHUB :
-            isWatch(selectedBeacon) ? globalConstants.BEACON_WATCH : globalConstants.BEACON_SOFIHUB
+            isWatch(selectedBeacon) ? globalConstants.BEACON_WATCH : 
+                isHalo(selectedBeacon) ? 'Halo' : globalConstants.BEACON_SOFIHUB
 
         return (
             <Card className="beacon-card" title={deviceType}>

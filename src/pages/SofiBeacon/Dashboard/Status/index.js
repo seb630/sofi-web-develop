@@ -4,9 +4,10 @@ import BeaconIcon from '@/images/beacon_icon.svg'
 import LifeIcon from '@/images/beacon_teq_life.png'
 import SitaIcon from '@/images/sita_icon.svg'
 import WatchIcon from '@/images/beacon_watch_icon.png'
+import HaloIcon from '@/images/beacon_teq_halo.png'
 import styled from '@/scss/colours.scss'
 import { formatPhoneNumberIntl } from 'react-phone-number-input'
-import { generateBatteryStatus, generateBeacon4gIcon, isSita, timeFromNow, isLife, isWatch } from '@/utility/Common'
+import { generateBatteryStatus, generateBeacon4gIcon, isSita, timeFromNow, isLife, isWatch, isHalo } from '@/utility/Common'
 import { globalConstants } from '@/_constants'
 import { BrowserView, isMobile } from 'react-device-detect'
 import { Fragment } from 'react'
@@ -106,7 +107,8 @@ const BeaconStatus = (props) => {
                         >
                             {isSita(beacon)?<SitaIcon/>: 
                                 isLife(beacon)? <img src={LifeIcon} style={{width: '65px'}} /> : 
-                                    isWatch(beacon) ? <img src={WatchIcon} style={{width:'65px'}}/> : <BeaconIcon />}
+                                    isWatch(beacon) ? <img src={WatchIcon} style={{width:'65px'}}/> : 
+                                        isHalo(beacon) ? <img src={HaloIcon} style={{width:'65px'}}/> : <BeaconIcon />}
                         </Col>
                         <Col flex="auto" className="statusRightContainer">
                             <Row align="middle" gutter={8} wrap={false}><Col flex="65px"><DeviceStatus status={beacon?.beacon_status}/></Col>

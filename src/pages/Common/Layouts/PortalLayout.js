@@ -13,7 +13,7 @@ import LifeInitModal from '../../SofiBeacon/LifeInit'
 import RadarInitModal from '../../Radar/RadarInit'
 import DeviceSelectionModal from '../../HubInit/DeviceSelectionModal'
 import { globalConstants } from '@/_constants'
-import { isLife, isWatch } from '@/utility/Common'
+import { isLife, isWatch, isHalo } from '@/utility/Common'
 
 const { Header, Content } = Layout
 
@@ -71,7 +71,8 @@ class PortalLayout extends Component {
                                     globalConstants.RADAR_HOBA : 
                                     isLife(selectedBeacon)?  
                                         globalConstants.LIFE_SOFIHUB :
-                                        isWatch(selectedBeacon) ? globalConstants.BEACON_WATCH : globalConstants.BEACON_SOFIHUB
+                                        isWatch(selectedBeacon) ? globalConstants.BEACON_WATCH : 
+                                            isHalo(selectedBeacon) ? 'Halo' : globalConstants.BEACON_SOFIHUB
                         }
                     </Link>
                 </Breadcrumb.Item>

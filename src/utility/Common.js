@@ -273,6 +273,10 @@ export const isSita = (item) => {
     return item.model === globalConstants.SITA_BEACON_MODEL
 }
 
+export const isHalo = (item) => {
+    return item?.model === globalConstants.EV12_BEACON_MODEL
+}
+
 export const isRadar = (item) => {
     return !!item.ext_id
 }

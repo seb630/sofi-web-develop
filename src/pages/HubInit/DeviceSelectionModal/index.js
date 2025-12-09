@@ -7,6 +7,7 @@ import WatchIcon from '.././../../images/beacon_watch_icon.png'
 import BeaconIcon from '../../../images/beacon_icon.svg'
 import RadarIcon from '.././../../images/radar_sensor_icon.png'
 import LifeIcon from '.././../../images/beacon_teq_life.png'
+import HaloIcon from '../../../images/beacon_teq_halo.png'
 import RadarQR from '@/images/radar_claim_qr.png'
 import TCPage from '../../../components/TCPage'
 import { showProductName } from '@/utility/Common'
@@ -186,6 +187,20 @@ class DeviceSelection extends Component {
                                 <a className="claimText" onClick={()=>this.handleNewBeacon('Watch')}>
                                     <div>
                                         <Row>{globalConstants.BEACON_WATCH}</Row>
+                                    </div>
+                                </a>
+                            </Row>
+                        </Col>
+                        <Col span={8}>
+                            <Row justify="center">
+                                <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Beacon')}>
+                                    <img src={HaloIcon} height='100px' alt='Halo Logo'/>
+                                </div>
+                            </Row>
+                            <Row justify="center">
+                                <a className="claimText" onClick={()=>this.handleNewBeacon('Beacon')}>
+                                    <div>
+                                        <Row>Halo</Row>
                                     </div>
                                 </a>
                             </Row>
