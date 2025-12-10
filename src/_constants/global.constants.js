@@ -187,5 +187,13 @@ export const globalConstants = {
     BILLING_COMPANY_EMAIL: 'support@sofihub.com',
     BILLING_COMPANY_PHONE: '1300 110 366',
 
-    EMERGENCY_CALL_NUMBERS: ['000', '111', '112', '911', '999']
+    EMERGENCY_CALL_NUMBERS: ['000', '111', '112', '911', '999'],
+
+    //Enable/disable claiming of devices
+    //This will show/hide the options for customers trying to claim a device
+    EV07_CLAIM_ENABLED : true, //TEQ-Secure
+    EV04_CLAIM_ENABLED : true, //TEQ-Life
+    EV06_CLAIM_ENABLED : true, //Watch
+    EV12_CLAIM_ENABLED : false, //Halo
+    FALLS_ALERT_CLAIM_ENABLED : true //TEQ-Falls Alert Radar
 }

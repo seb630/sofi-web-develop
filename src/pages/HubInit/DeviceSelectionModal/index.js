@@ -133,78 +133,88 @@ class DeviceSelection extends Component {
             {tcPage ? this.renderTCpage() : radarPage ? this.renderRadarPage() :
                 <Col>
                     <Row gutter={16} justify="center" style={{marginBottom: '24px'}}>
-                        <Col span={8}>
-                            <Row justify="center">
-                                <div className="roundLogoContainer" onClick={this.handleNewLife}>
-                                    <img src={LifeIcon} height='100px' alt="LifeLogo" />
-                                </div>
-                            </Row>
-                            <Row justify="center">
-                                <a className="claimText" onClick={this.handleNewLife}>
-                                    <div>
-                                        <Row>{globalConstants.LIFE_SOFIHUB}</Row>
+                        {globalConstants.EV04_CLAIM_ENABLED && (
+                            <Col span={8}>
+                                <Row justify="center">
+                                    <div className="roundLogoContainer" onClick={this.handleNewLife}>
+                                        <img src={LifeIcon} height='100px' alt="LifeLogo" />
                                     </div>
-                                </a>
-                            </Row>
-                        </Col>
-                        <Col span={8}>
-                            <Row justify="center">
-                                <div className="roundLogoContainer" onClick={this.handleNewRadar} >
-                                    <img src={RadarIcon} className="claimRadarImg" alt="RadarLogo" />
-                                </div>
-                            </Row>
-                            <Row justify="center">
-                                <a className="claimText" onClick={this.handleNewRadar}>
-                                    <div>
-                                        <Row>{globalConstants.RADAR_HOBA}</Row>
+                                </Row>
+                                <Row justify="center">
+                                    <a className="claimText" onClick={this.handleNewLife}>
+                                        <div>
+                                            <Row>{globalConstants.LIFE_SOFIHUB}</Row>
+                                        </div>
+                                    </a>
+                                </Row>
+                            </Col>
+                        )}
+                        {globalConstants.FALLS_ALERT_CLAIM_ENABLED && (
+                            <Col span={8}>
+                                <Row justify="center">
+                                    <div className="roundLogoContainer" onClick={this.handleNewRadar} >
+                                        <img src={RadarIcon} className="claimRadarImg" alt="RadarLogo" />
                                     </div>
-                                </a>
-                            </Row>
-                        </Col>
+                                </Row>
+                                <Row justify="center">
+                                    <a className="claimText" onClick={this.handleNewRadar}>
+                                        <div>
+                                            <Row>{globalConstants.RADAR_HOBA}</Row>
+                                        </div>
+                                    </a>
+                                </Row>
+                            </Col>
+                        )}
                     </Row>
                     <Row gutter={16} justify="center">                        
-                        <Col span={8}>
-                            <Row justify="center">
-                                <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Beacon')}>
-                                    <BeaconIcon className="claimImg" />
-                                </div>
-                            </Row>
-                            <Row justify="center">
-                                <a className="claimText" onClick={()=>this.handleNewBeacon('Beacon')}>
-                                    <div>
-                                        <Row>{globalConstants.BEACON_SOFIHUB}</Row>
+                        {globalConstants.EV07_CLAIM_ENABLED && (
+                            <Col span={8}>
+                                <Row justify="center">
+                                    <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Beacon')}>
+                                        <BeaconIcon className="claimImg" />
                                     </div>
-                                </a>
-                            </Row>
-                        </Col>
-                        <Col span={8}>
-                            <Row justify="center">
-                                <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Watch')}>
-                                    <img src={WatchIcon} height='100px' alt='Watch Logo'/>
-                                </div>
-                            </Row>
-                            <Row justify="center">
-                                <a className="claimText" onClick={()=>this.handleNewBeacon('Watch')}>
-                                    <div>
-                                        <Row>{globalConstants.BEACON_WATCH}</Row>
+                                </Row>
+                                <Row justify="center">
+                                    <a className="claimText" onClick={()=>this.handleNewBeacon('Beacon')}>
+                                        <div>
+                                            <Row>{globalConstants.BEACON_SOFIHUB}</Row>
+                                        </div>
+                                    </a>
+                                </Row>
+                            </Col>
+                        )}
+                        {globalConstants.EV06_CLAIM_ENABLED && (
+                            <Col span={8}>
+                                <Row justify="center">
+                                    <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Watch')}>
+                                        <img src={WatchIcon} height='100px' alt='Watch Logo'/>
                                     </div>
-                                </a>
-                            </Row>
-                        </Col>
-                        <Col span={8}>
-                            <Row justify="center">
-                                <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Beacon')}>
-                                    <img src={HaloIcon} height='100px' alt='Halo Logo'/>
-                                </div>
-                            </Row>
-                            <Row justify="center">
-                                <a className="claimText" onClick={()=>this.handleNewBeacon('Beacon')}>
-                                    <div>
-                                        <Row>Halo</Row>
+                                </Row>
+                                <Row justify="center">
+                                    <a className="claimText" onClick={()=>this.handleNewBeacon('Watch')}>
+                                        <div>
+                                            <Row>{globalConstants.BEACON_WATCH}</Row>
+                                        </div>
+                                    </a>
+                                </Row>
+                            </Col>
+                        )}
+                        {globalConstants.EV12_CLAIM_ENABLED && (
+                            <Col span={8}>
+                                <Row justify="center">
+                                    <div className="roundLogoContainer" onClick={()=>this.handleNewBeacon('Beacon')}>
+                                        <img src={HaloIcon} height='100px' alt='Halo Logo'/>
                                     </div>
-                                </a>
-                            </Row>
-                        </Col>
+                                </Row>
+                                <Row justify="center">
+                                    <a className="claimText" onClick={()=>this.handleNewBeacon('Beacon')}>
+                                        <div>
+                                            <Row>Halo</Row>
+                                        </div>
+                                    </a>
+                                </Row>
+                            </Col>
+                        )}
                     </Row>
                 </Col>
 
