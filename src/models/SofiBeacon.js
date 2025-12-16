@@ -433,7 +433,9 @@ export default {
             try {
                 return await beaconService.requestLinkingBeacon(payload)
             } catch (err) {
-                return Promise.reject(err.response?.data)
+                const error = err.response?.data || {}
+                error.status = err.response?.status
+                return Promise.reject(error)
             }
         },
 

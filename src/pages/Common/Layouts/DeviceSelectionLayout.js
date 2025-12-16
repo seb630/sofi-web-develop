@@ -7,11 +7,13 @@ import PropTypes from 'prop-types'
 import { DownTimeBanner, NewEmailBanner, VerificationBanner } from '../Banner'
 import HubInitModal from '../../HubInit'
 import BeaconInitModal from '../../SofiBeacon/BeaconInit'
+import NewClaimModal from '../../SofiBeacon/NewClaimModal'
 import LifeInitModal from '../../SofiBeacon/LifeInit'
 import DeviceSelectionModal from '../../HubInit/DeviceSelectionModal'
 import Logo from '../../../images/logo.svg'
 import { isMobile } from 'react-device-detect'
 import RadarInitModal from '@/pages/Radar/RadarInit'
+import { globalConstants } from '@/_constants'
 
 const { Header, Content } = Layout
 
@@ -22,6 +24,9 @@ const mapStateToProps = state => ({
     sideMenuCollapsed: state.common.sideMenuCollapsed,
     me: state.user.me,
     newHubModal: state.common.newHubModal,
+    newBeaconModal: state.common.newBeaconModal,
+    newWatchModal: state.common.newWatchModal,
+    newLifeModal: state.common.newLifeModal,
     loading: state.user.loading,
 })
 
@@ -87,8 +92,24 @@ class DeviceSelectionLayout extends Component {
                                 {content}
                             </div>
                             <HubInitModal />
-                            <BeaconInitModal />
-                            <LifeInitModal />
+                            {((globalConstants.EV07_CLAIM_FLOW_V2 || globalConstants.EV12_CLAIM_FLOW_V2) && this.props.newBeaconModal) || 
+                             (globalConstants.EV06_CLAIM_FLOW_V2 && this.props.newWatchModal) || 
+                             (globalConstants.EV04_CLAIM_FLOW_V2 && this.props.newLifeModal) ? 
+                                <NewClaimModal /> : null
+                            }
+                            {((!globalConstants.EV07_CLAIM_FLOW_V2 && !globalConstants.EV12_CLAIM_FLOW_V2) && this.props.newBeaconModal) || 
+                             (!globalConstants.EV06_CLAIM_FLOW_V2 && this.props.newWatchModal) ? 
+                                <BeaconInitModal /> : null
+                            }
+                            {!globalConstants.EV04_CLAIM_FLOW_V2 && this.props.newLifeModal ? 
+                                <LifeInitModal /> : null
+                            }
+                            {(!this.props.newBeaconModal && !this.props.newWatchModal && !this.props.newLifeModal) ? 
+                                <>
+                                    <BeaconInitModal />
+                                    <LifeInitModal />
+                                </> : null
+                            }
                             <RadarInitModal />
                             <DeviceSelectionModal />
                         </Content>

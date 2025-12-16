@@ -194,6 +194,11 @@ export const globalConstants = {
     EV07_CLAIM_ENABLED : true, //TEQ-Secure
     EV04_CLAIM_ENABLED : true, //TEQ-Life
     EV06_CLAIM_ENABLED : true, //Watch
-    EV12_CLAIM_ENABLED : false, //Halo
-    FALLS_ALERT_CLAIM_ENABLED : true //TEQ-Falls Alert Radar
+    EV12_CLAIM_ENABLED : true, //Halo
+    FALLS_ALERT_CLAIM_ENABLED : true, //TEQ-Falls Alert Radar
+    //Enable/disable new claim process for the following devices
+    EV07_CLAIM_FLOW_V2 : true, //TEQ-Secure
+    EV04_CLAIM_FLOW_V2 : true, //TEQ-Life
+    EV06_CLAIM_FLOW_V2 : false, //Watch
+    EV12_CLAIM_FLOW_V2 : false,  //Halo
 }
