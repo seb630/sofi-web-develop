@@ -72,16 +72,8 @@ class NewClaimModal extends Component {
                     })
                     actions.sofiBeacon.fetchBeaconByUser()
                 }).catch((error) => {
-                    if (error?.status === 400) {
-                        // Proceed to next step on 400 response
-                        this.setState({ 
-                            current,
-                            timezone: 'Not set'
-                        })
-                    } else {
-                        this.recaptchaRef.current.reset()
-                        message.error(error.message, 10)
-                    }
+                    this.recaptchaRef.current.reset()
+                    message.error(error.message, 10)
                 })
             }
         })
